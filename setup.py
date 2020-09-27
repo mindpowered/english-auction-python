@@ -4,7 +4,11 @@ import setuptools
     #long_description = fh.read()
 setuptools.setup(
      name='mindpowered-englishauction',
-     version='0.0.13',
+     version='0.0.14',
+     author="Mind Powered Corporation",
+     author_email="support@mindpowered.dev",
+     license="UNLICENSED",
+     url="https://mindpowered.dev/",
      description="EnglishAuction",
      #long_description=long_description,
      #long_description_content_type="text/markdown",
