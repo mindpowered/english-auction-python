@@ -4,7 +4,7 @@ import setuptools
     #long_description = fh.read()
 setuptools.setup(
      name='mindpowered-englishauction',
-     version='0.0.18',
+     version='0.0.19',
      author="Mind Powered Corporation",
      author_email="support@mindpowered.dev",
      license="CPAL-1.0",
@@ -16,6 +16,5 @@ setuptools.setup(
      classifiers=[
          "Programming Language :: Python :: 3",
          "Operating System :: OS Independent",
-         'License :: OSI Approved :: Common Public Attribution License Version 1.0 (CPAL-1.0)',
      ],
  )
