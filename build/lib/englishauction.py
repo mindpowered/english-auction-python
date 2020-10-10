@@ -70,7 +70,10 @@ class _hx_AnonObject:
 
 
 class Enum:
+    _hx_class_name = "Enum"
     __slots__ = ("tag", "index", "params")
+    _hx_fields = ["tag", "index", "params"]
+    _hx_methods = ["__str__"]
 
     def __init__(self,tag,index,params):
         self.tag = tag
@@ -94,7 +97,11 @@ class Class: pass
 
 
 class Date:
+    _hx_class_name = "Date"
     __slots__ = ("date", "dateUTC")
+    _hx_fields = ["date", "dateUTC"]
+    _hx_methods = ["getTime", "getHours", "getMinutes", "getSeconds", "getFullYear", "getMonth", "getDate", "getDay", "getUTCHours", "getUTCMinutes", "getUTCSeconds", "getUTCFullYear", "getUTCMonth", "getUTCDate", "getUTCDay", "getTimezoneOffset", "toString"]
+    _hx_statics = ["now", "fromTime", "makeLocal", "UTC", "fromString"]
 
     def __init__(self,year,month,day,hour,_hx_min,sec):
         self.dateUTC = None
@@ -216,7 +223,11 @@ class Date:
 
 
 class EReg:
+    _hx_class_name = "EReg"
     __slots__ = ("pattern", "matchObj", "_hx_global")
+    _hx_fields = ["pattern", "matchObj", "global"]
+    _hx_methods = ["match", "matched", "matchedLeft", "matchedRight", "matchedPos", "matchSub", "split", "replace", "map"]
+    _hx_statics = ["escape"]
 
     def __init__(self,r,opt):
         self.matchObj = None
@@ -350,7 +361,9 @@ class EReg:
 
 
 class _EnumValue_EnumValue_Impl_:
+    _hx_class_name = "_EnumValue.EnumValue_Impl_"
     __slots__ = ()
+    _hx_statics = ["match"]
 
     @staticmethod
     def match(this1,pattern):
@@ -358,7 +371,10 @@ class _EnumValue_EnumValue_Impl_:
 
 
 class IntIterator:
+    _hx_class_name = "IntIterator"
     __slots__ = ("min", "max")
+    _hx_fields = ["min", "max"]
+    _hx_methods = ["hasNext", "next"]
 
     def __init__(self,_hx_min,_hx_max):
         self.min = _hx_min
@@ -384,7 +400,9 @@ class IntIterator:
 
 
 class Reflect:
+    _hx_class_name = "Reflect"
     __slots__ = ()
+    _hx_statics = ["hasField", "field", "setField", "getProperty", "setProperty", "callMethod", "fields", "isFunction", "compare", "isClosure", "compareMethods", "isObject", "isEnumValue", "deleteField", "copy", "makeVarArgs"]
 
     @staticmethod
     def hasField(o,field):
@@ -529,7 +547,9 @@ class Reflect:
 
 
 class Std:
+    _hx_class_name = "Std"
     __slots__ = ()
+    _hx_statics = ["downcast", "instance", "isMetaType", "is", "isOfType", "string", "int", "parseInt", "shortenPossibleNumber", "parseFloat", "random"]
 
     @staticmethod
     def downcast(value,c):
@@ -805,7 +825,10 @@ class Dynamic: pass
 
 
 class StringBuf:
+    _hx_class_name = "StringBuf"
     __slots__ = ("b",)
+    _hx_fields = ["b"]
+    _hx_methods = ["get_length", "add", "add1", "addChar", "addSub", "toString"]
 
     def __init__(self):
         self.b = python_lib_io_StringIO()
@@ -841,7 +864,9 @@ class StringBuf:
 
 
 class haxe_SysTools:
+    _hx_class_name = "haxe.SysTools"
     __slots__ = ()
+    _hx_statics = ["winMetaCharacters", "quoteUnixArg", "quoteWinArg"]
 
     @staticmethod
     def quoteUnixArg(argument):
@@ -920,7 +945,9 @@ class haxe_SysTools:
 
 
 class StringTools:
+    _hx_class_name = "StringTools"
     __slots__ = ()
+    _hx_statics = ["urlEncode", "urlDecode", "htmlEscape", "htmlUnescape", "contains", "startsWith", "endsWith", "isSpace", "ltrim", "rtrim", "trim", "lpad", "rpad", "replace", "hex", "fastCodeAt", "iterator", "keyValueIterator", "isEof", "quoteUnixArg", "winMetaCharacters", "quoteWinArg"]
 
     @staticmethod
     def urlEncode(s):
@@ -1172,7 +1199,9 @@ class StringTools:
 
 
 class sys_FileSystem:
+    _hx_class_name = "sys.FileSystem"
     __slots__ = ()
+    _hx_statics = ["exists", "stat", "rename", "fullPath", "absolutePath", "isDirectory", "createDirectory", "deleteFile", "deleteDirectory", "readDirectory"]
 
     @staticmethod
     def exists(path):
@@ -1219,11 +1248,17 @@ class sys_FileSystem:
 
 
 class haxe_IMap:
+    _hx_class_name = "haxe.IMap"
     __slots__ = ()
+    _hx_methods = ["get", "set", "exists", "remove", "keys", "iterator", "keyValueIterator", "copy", "toString", "clear"]
 
 
 class haxe_ds_StringMap:
+    _hx_class_name = "haxe.ds.StringMap"
     __slots__ = ("h",)
+    _hx_fields = ["h"]
+    _hx_methods = ["set", "get", "exists", "remove", "keys", "iterator", "keyValueIterator", "copy", "toString", "clear"]
+    _hx_interfaces = [haxe_IMap]
 
     def __init__(self):
         self.h = dict()
@@ -1285,7 +1320,10 @@ class haxe_ds_StringMap:
 
 
 class python_HaxeIterator:
+    _hx_class_name = "python.HaxeIterator"
     __slots__ = ("it", "x", "has", "checked")
+    _hx_fields = ["it", "x", "has", "checked"]
+    _hx_methods = ["next", "hasNext"]
 
     def __init__(self,it):
         self.checked = False
@@ -1323,7 +1361,9 @@ class python_HaxeIterator:
 
 
 class Sys:
+    _hx_class_name = "Sys"
     __slots__ = ()
+    _hx_statics = ["environ", "time", "exit", "print", "println", "args", "getEnv", "putEnv", "environment", "sleep", "setTimeLocale", "getCwd", "setCwd", "systemName", "command", "cpuTime", "executablePath", "_programPath", "programPath", "getChar", "stdin", "stdout", "stderr"]
 
     @staticmethod
     def time():
@@ -1498,6 +1538,8 @@ class Sys:
 
 class ValueType(Enum):
     __slots__ = ()
+    _hx_class_name = "ValueType"
+    _hx_constructs = ["TNull", "TInt", "TFloat", "TBool", "TObject", "TFunction", "TClass", "TEnum", "TUnknown"]
 
     @staticmethod
     def TClass(c):
@@ -1516,7 +1558,9 @@ ValueType.TUnknown = ValueType("TUnknown", 8, ())
 
 
 class Type:
+    _hx_class_name = "Type"
     __slots__ = ()
+    _hx_statics = ["getClass", "getEnum", "getSuperClass", "getClassName", "getEnumName", "resolveClass", "resolveEnum", "createInstance", "createEmptyInstance", "createEnum", "createEnumIndex", "getInstanceFields", "getClassFields", "getEnumConstructs", "typeof", "asEnumImpl", "enumEq", "enumConstructor", "enumParameters", "enumIndex", "allEnums"]
 
     @staticmethod
     def getClass(o):
@@ -1731,17 +1775,64 @@ class Type:
 
 
 class englishauction_EnglishAuction:
+    _hx_class_name = "englishauction.EnglishAuction"
     __slots__ = ("maglev",)
+    _hx_fields = ["maglev"]
+    _hx_methods = ["registerMyMethods"]
+    _hx_statics = ["__meta__"]
 
     def __init__(self,maglev):
         self.maglev = maglev
         self.registerMyMethods()
 
     def registerMyMethods(self):
+        bus = self.maglev
         def _hx_local_0(args):
             ret = "idhere"
             return ret
         self.maglev.register("EnglishAuction.Create",_hx_local_0)
+        def _hx_local_1(args):
+            id = (args[0] if 0 < len(args) else None)
+            auction = bus.call("Persistence.Get",["Auction", "FindById", [id]])
+            start = 0
+            if Std.isOfType(auction.h.get("start",None),str):
+                start = (Date.fromString(auction.h.get("start",None)).date.timestamp() * 1000)
+            else:
+                start = auction.h.get("start",None)
+            return start
+        self.maglev.register("EnglishAuction.GetStart",_hx_local_1)
+        def _hx_local_2(args):
+            id = (args[0] if 0 < len(args) else None)
+            auction = bus.call("Persistence.Get",["Auction", "FindById", [id]])
+            end = 0
+            if Std.isOfType(auction.h.get("end",None),str):
+                end = (Date.fromString(auction.h.get("end",None)).date.timestamp() * 1000)
+            else:
+                end = auction.h.get("end",None)
+            return end
+        self.maglev.register("EnglishAuction.GetEnd",_hx_local_2)
+        def _hx_local_3(args):
+            id = (args[0] if 0 < len(args) else None)
+            auction = bus.call("Persistence.Get",["Auction", "FindById", [id]])
+            start = 0
+            if Std.isOfType(auction.h.get("start",None),str):
+                start = (Date.fromString(auction.h.get("start",None)).date.timestamp() * 1000)
+            else:
+                start = auction.h.get("start",None)
+            now = (Date.now().date.timestamp() * 1000)
+            return (start <= now)
+        self.maglev.register("EnglishAuction.HasStarted",_hx_local_3)
+        def _hx_local_4(args):
+            id = (args[0] if 0 < len(args) else None)
+            auction = bus.call("Persistence.Get",["Auction", "FindById", [id]])
+            end = 0
+            if Std.isOfType(auction.h.get("end",None),str):
+                end = (Date.fromString(auction.h.get("end",None)).date.timestamp() * 1000)
+            else:
+                end = auction.h.get("end",None)
+            now = (Date.now().date.timestamp() * 1000)
+            return (now > end)
+        self.maglev.register("EnglishAuction.HasEnded",_hx_local_4)
 
     @staticmethod
     def _hx_empty_init(_hx_o):
@@ -1749,6 +1840,8 @@ class englishauction_EnglishAuction:
 
 class haxe_StackItem(Enum):
     __slots__ = ()
+    _hx_class_name = "haxe.StackItem"
+    _hx_constructs = ["CFunction", "Module", "FilePos", "Method", "LocalFunction"]
 
     @staticmethod
     def Module(m):
@@ -1769,7 +1862,9 @@ haxe_StackItem.CFunction = haxe_StackItem("CFunction", 0, ())
 
 
 class haxe__CallStack_CallStack_Impl_:
+    _hx_class_name = "haxe._CallStack.CallStack_Impl_"
     __slots__ = ()
+    _hx_statics = ["get_length", "callStack", "exceptionStack", "toString", "subtract", "copy", "get", "asArray", "equalItems", "exceptionToString", "itemToString"]
     length = None
 
     @staticmethod
@@ -1979,7 +2074,14 @@ class haxe__CallStack_CallStack_Impl_:
 
 
 class haxe_Exception(Exception):
+    _hx_class_name = "haxe.Exception"
     __slots__ = ("_hx___exceptionStack", "_hx___nativeStack", "_hx___skipStack", "_hx___nativeException", "_hx___previousException")
+    _hx_fields = ["__exceptionStack", "__nativeStack", "__skipStack", "__nativeException", "__previousException"]
+    _hx_methods = ["unwrap", "toString", "details", "__shiftStack", "get_message", "get_previous", "get_native", "get_stack"]
+    _hx_statics = ["caught", "thrown"]
+    _hx_interfaces = []
+    _hx_super = Exception
+
 
     def __init__(self,message,previous = None,native = None):
         self._hx___previousException = None
@@ -2085,7 +2187,9 @@ class haxe_Exception(Exception):
 
 
 class haxe__Int32_Int32_Impl_:
+    _hx_class_name = "haxe._Int32.Int32_Impl_"
     __slots__ = ()
+    _hx_statics = ["negate", "preIncrement", "postIncrement", "preDecrement", "postDecrement", "add", "addInt", "sub", "subInt", "intSub", "mul", "mulInt", "complement", "or", "orInt", "xor", "xorInt", "shr", "shrInt", "intShr", "shl", "shlInt", "intShl", "toFloat", "ucompare", "clamp"]
 
     @staticmethod
     def negate(this1):
@@ -2213,7 +2317,9 @@ class haxe__Int32_Int32_Impl_:
 
 
 class haxe__Int64_Int64_Impl_:
+    _hx_class_name = "haxe._Int64.Int64_Impl_"
     __slots__ = ()
+    _hx_statics = ["_new", "copy", "make", "ofInt", "toInt", "is", "isInt64", "getHigh", "getLow", "isNeg", "isZero", "compare", "ucompare", "toStr", "toString", "parseString", "fromFloat", "divMod", "neg", "preIncrement", "postIncrement", "preDecrement", "postDecrement", "add", "addInt", "sub", "subInt", "intSub", "mul", "mulInt", "div", "divInt", "intDiv", "mod", "modInt", "intMod", "eq", "eqInt", "neq", "neqInt", "lt", "ltInt", "intLt", "lte", "lteInt", "intLte", "gt", "gtInt", "intGt", "gte", "gteInt", "intGte", "complement", "and", "or", "xor", "shl", "shr", "ushr", "get_high", "set_high", "get_low", "set_low"]
     high = None
     low = None
 
@@ -2954,7 +3060,10 @@ class haxe__Int64_Int64_Impl_:
 
 
 class haxe__Int64____Int64:
+    _hx_class_name = "haxe._Int64.___Int64"
     __slots__ = ("high", "low")
+    _hx_fields = ["high", "low"]
+    _hx_methods = ["toString"]
 
     def __init__(self,high,low):
         self.high = high
@@ -2970,7 +3079,9 @@ class haxe__Int64____Int64:
 
 
 class haxe_Int64Helper:
+    _hx_class_name = "haxe.Int64Helper"
     __slots__ = ()
+    _hx_statics = ["parseString", "fromFloat"]
 
     @staticmethod
     def parseString(sParam):
@@ -3153,7 +3264,9 @@ class haxe_Int64Helper:
 
 
 class haxe_NativeStackTrace:
+    _hx_class_name = "haxe.NativeStackTrace"
     __slots__ = ()
+    _hx_statics = ["saveStack", "callStack", "exceptionStack", "toHaxe"]
 
     @staticmethod
     def saveStack(exception):
@@ -3196,7 +3309,14 @@ class haxe_NativeStackTrace:
 
 
 class haxe_ValueException(haxe_Exception):
+    _hx_class_name = "haxe.ValueException"
     __slots__ = ("value",)
+    _hx_fields = ["value"]
+    _hx_methods = ["unwrap"]
+    _hx_statics = []
+    _hx_interfaces = []
+    _hx_super = haxe_Exception
+
 
     def __init__(self,value,previous = None,native = None):
         self.value = None
@@ -3216,7 +3336,12 @@ class haxe_ValueException(haxe_Exception):
 
 
 class haxe_ds_BalancedTree:
+    _hx_class_name = "haxe.ds.BalancedTree"
     __slots__ = ("root",)
+    _hx_fields = ["root"]
+    _hx_methods = ["set", "get", "remove", "exists", "iterator", "keyValueIterator", "keys", "copy", "setLoop", "removeLoop", "keysLoop", "merge", "minBinding", "removeMinBinding", "balance", "compare", "toString", "clear"]
+    _hx_statics = ["iteratorLoop"]
+    _hx_interfaces = [haxe_IMap]
 
     def __init__(self):
         self.root = None
@@ -3376,7 +3501,10 @@ class haxe_ds_BalancedTree:
 
 
 class haxe_ds_TreeNode:
+    _hx_class_name = "haxe.ds.TreeNode"
     __slots__ = ("left", "right", "key", "value", "_height")
+    _hx_fields = ["left", "right", "key", "value", "_height"]
+    _hx_methods = ["toString"]
 
     def __init__(self,l,k,v,r,h = None):
         if (h is None):
@@ -3413,7 +3541,14 @@ class haxe_ds_TreeNode:
 
 
 class haxe_ds_EnumValueMap(haxe_ds_BalancedTree):
+    _hx_class_name = "haxe.ds.EnumValueMap"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = ["compare", "compareArgs", "compareArg", "copy"]
+    _hx_statics = []
+    _hx_interfaces = [haxe_IMap]
+    _hx_super = haxe_ds_BalancedTree
+
 
     def __init__(self):
         super().__init__()
@@ -3460,7 +3595,9 @@ class haxe_ds_EnumValueMap(haxe_ds_BalancedTree):
 
 
 class haxe_ds__HashMap_HashMap_Impl_:
+    _hx_class_name = "haxe.ds._HashMap.HashMap_Impl_"
     __slots__ = ()
+    _hx_statics = ["_new", "set", "get", "exists", "remove", "keys", "copy", "iterator", "keyValueIterator", "clear"]
 
     @staticmethod
     def _new():
@@ -3514,7 +3651,9 @@ class haxe_ds__HashMap_HashMap_Impl_:
 
 
 class haxe_ds__HashMap_HashMapData:
+    _hx_class_name = "haxe.ds._HashMap.HashMapData"
     __slots__ = ("keys", "values")
+    _hx_fields = ["keys", "values"]
 
     def __init__(self):
         self.keys = haxe_ds_IntMap()
@@ -3527,7 +3666,11 @@ class haxe_ds__HashMap_HashMapData:
 
 
 class haxe_ds_IntMap:
+    _hx_class_name = "haxe.ds.IntMap"
     __slots__ = ("h",)
+    _hx_fields = ["h"]
+    _hx_methods = ["set", "get", "exists", "remove", "keys", "iterator", "keyValueIterator", "copy", "toString", "clear"]
+    _hx_interfaces = [haxe_IMap]
 
     def __init__(self):
         self.h = dict()
@@ -3588,7 +3731,9 @@ class haxe_ds_IntMap:
 
 
 class haxe_ds__Map_Map_Impl_:
+    _hx_class_name = "haxe.ds._Map.Map_Impl_"
     __slots__ = ()
+    _hx_statics = ["set", "get", "exists", "remove", "keys", "iterator", "keyValueIterator", "copy", "toString", "clear", "arrayWrite", "toStringMap", "toIntMap", "toEnumValueMapMap", "toObjectMap", "fromStringMap", "fromIntMap", "fromObjectMap"]
 
     @staticmethod
     def set(this1,key,value):
@@ -3665,7 +3810,11 @@ class haxe_ds__Map_Map_Impl_:
 
 
 class haxe_ds_ObjectMap:
+    _hx_class_name = "haxe.ds.ObjectMap"
     __slots__ = ("h",)
+    _hx_fields = ["h"]
+    _hx_methods = ["set", "get", "exists", "remove", "keys", "iterator", "keyValueIterator", "copy", "toString", "clear"]
+    _hx_interfaces = [haxe_IMap]
 
     def __init__(self):
         self.h = dict()
@@ -3726,7 +3875,9 @@ class haxe_ds_ObjectMap:
 
 
 class haxe_ds__ReadOnlyArray_ReadOnlyArray_Impl_:
+    _hx_class_name = "haxe.ds._ReadOnlyArray.ReadOnlyArray_Impl_"
     __slots__ = ()
+    _hx_statics = ["get_length", "get"]
     length = None
 
     @staticmethod
@@ -3739,7 +3890,10 @@ class haxe_ds__ReadOnlyArray_ReadOnlyArray_Impl_:
 
 
 class haxe_ds_WeakMap:
+    _hx_class_name = "haxe.ds.WeakMap"
     __slots__ = ()
+    _hx_methods = ["set", "get", "exists", "remove", "keys", "iterator", "keyValueIterator", "copy", "toString", "clear"]
+    _hx_interfaces = [haxe_IMap]
 
     def __init__(self):
         raise haxe_Exception.thrown("Not implemented for this platform")
@@ -3779,7 +3933,11 @@ class haxe_ds_WeakMap:
 
 
 class haxe_io_Bytes:
+    _hx_class_name = "haxe.io.Bytes"
     __slots__ = ("length", "b")
+    _hx_fields = ["length", "b"]
+    _hx_methods = ["get", "set", "blit", "fill", "sub", "compare", "getDouble", "getFloat", "setDouble", "setFloat", "getUInt16", "setUInt16", "getInt32", "getInt64", "setInt32", "setInt64", "getString", "readString", "toString", "toHex", "getData"]
+    _hx_statics = ["alloc", "ofString", "ofData", "ofHex", "fastGet"]
 
     def __init__(self,length,b):
         self.length = length
@@ -3975,7 +4133,10 @@ class haxe_io_Bytes:
 
 
 class haxe_io_BytesBuffer:
+    _hx_class_name = "haxe.io.BytesBuffer"
     __slots__ = ("b",)
+    _hx_fields = ["b"]
+    _hx_methods = ["get_length", "addByte", "add", "addString", "addInt32", "addInt64", "addFloat", "addDouble", "addBytes", "getBytes"]
 
     def __init__(self):
         self.b = bytearray()
@@ -4024,12 +4185,16 @@ class haxe_io_BytesBuffer:
 
 class haxe_io_Encoding(Enum):
     __slots__ = ()
+    _hx_class_name = "haxe.io.Encoding"
+    _hx_constructs = ["UTF8", "RawNative"]
 haxe_io_Encoding.UTF8 = haxe_io_Encoding("UTF8", 0, ())
 haxe_io_Encoding.RawNative = haxe_io_Encoding("RawNative", 1, ())
 
 
 class haxe_io_Eof:
+    _hx_class_name = "haxe.io.Eof"
     __slots__ = ()
+    _hx_methods = ["toString"]
 
     def __init__(self):
         pass
@@ -4042,6 +4207,8 @@ class haxe_io_Eof:
 
 class haxe_io_Error(Enum):
     __slots__ = ()
+    _hx_class_name = "haxe.io.Error"
+    _hx_constructs = ["Blocked", "Overflow", "OutsideBounds", "Custom"]
 
     @staticmethod
     def Custom(e):
@@ -4052,7 +4219,9 @@ haxe_io_Error.OutsideBounds = haxe_io_Error("OutsideBounds", 2, ())
 
 
 class haxe_io_FPHelper:
+    _hx_class_name = "haxe.io.FPHelper"
     __slots__ = ()
+    _hx_statics = ["i64tmp", "LN2", "_i32ToFloat", "_i64ToDouble", "_floatToI32", "_doubleToI64", "i32ToFloat", "floatToI32", "i64ToDouble", "doubleToI64"]
 
     @staticmethod
     def _i32ToFloat(i):
@@ -4241,7 +4410,10 @@ class haxe_io_FPHelper:
 
 
 class haxe_io_Input:
+    _hx_class_name = "haxe.io.Input"
     __slots__ = ("bigEndian",)
+    _hx_fields = ["bigEndian"]
+    _hx_methods = ["readByte", "readBytes", "close", "set_bigEndian", "readAll", "readFullBytes", "read", "readUntil", "readLine", "readFloat", "readDouble", "readInt8", "readInt16", "readUInt16", "readInt24", "readUInt24", "readInt32", "readString", "getDoubleSig"]
 
     def readByte(self):
         raise haxe_Exception.thrown("Not implemented")
@@ -4418,7 +4590,10 @@ class haxe_io_Input:
 
 
 class haxe_io_Output:
+    _hx_class_name = "haxe.io.Output"
     __slots__ = ("bigEndian",)
+    _hx_fields = ["bigEndian"]
+    _hx_methods = ["writeByte", "writeBytes", "flush", "close", "set_bigEndian", "write", "writeFullBytes", "writeFloat", "writeDouble", "writeInt8", "writeInt16", "writeUInt16", "writeInt24", "writeUInt24", "writeInt32", "prepare", "writeInput", "writeString"]
 
     def writeByte(self,c):
         raise haxe_Exception.thrown("Not implemented")
@@ -4555,7 +4730,11 @@ class haxe_io_Output:
 
 
 class haxe_io_Path:
+    _hx_class_name = "haxe.io.Path"
     __slots__ = ("dir", "file", "ext", "backslash")
+    _hx_fields = ["dir", "file", "ext", "backslash"]
+    _hx_methods = ["toString"]
+    _hx_statics = ["withoutExtension", "withoutDirectory", "directory", "extension", "withExtension", "join", "normalize", "addTrailingSlash", "removeTrailingSlashes", "isAbsolute", "unescape", "escape"]
 
     def __init__(self,path):
         self.backslash = None
@@ -4814,7 +4993,10 @@ class haxe_io_Path:
 
 
 class haxe_iterators_ArrayIterator:
+    _hx_class_name = "haxe.iterators.ArrayIterator"
     __slots__ = ("array", "current")
+    _hx_fields = ["array", "current"]
+    _hx_methods = ["hasNext", "next"]
 
     def __init__(self,array):
         self.current = 0
@@ -4840,7 +5022,10 @@ class haxe_iterators_ArrayIterator:
 
 
 class haxe_iterators_ArrayKeyValueIterator:
+    _hx_class_name = "haxe.iterators.ArrayKeyValueIterator"
     __slots__ = ("current", "array")
+    _hx_fields = ["current", "array"]
+    _hx_methods = ["hasNext", "next"]
 
     def __init__(self,array):
         self.current = 0
@@ -4866,7 +5051,10 @@ class haxe_iterators_ArrayKeyValueIterator:
 
 
 class haxe_iterators_HashMapKeyValueIterator:
+    _hx_class_name = "haxe.iterators.HashMapKeyValueIterator"
     __slots__ = ("map", "keys")
+    _hx_fields = ["map", "keys"]
+    _hx_methods = ["hasNext", "next"]
 
     def __init__(self,_hx_map):
         self.map = _hx_map
@@ -4888,7 +5076,10 @@ class haxe_iterators_HashMapKeyValueIterator:
 
 
 class haxe_iterators_MapKeyValueIterator:
+    _hx_class_name = "haxe.iterators.MapKeyValueIterator"
     __slots__ = ("map", "keys")
+    _hx_fields = ["map", "keys"]
+    _hx_methods = ["hasNext", "next"]
 
     def __init__(self,_hx_map):
         self.map = _hx_map
@@ -4908,7 +5099,10 @@ class haxe_iterators_MapKeyValueIterator:
 
 
 class haxe_iterators_StringIterator:
+    _hx_class_name = "haxe.iterators.StringIterator"
     __slots__ = ("offset", "s")
+    _hx_fields = ["offset", "s"]
+    _hx_methods = ["hasNext", "next"]
 
     def __init__(self,s):
         self.offset = 0
@@ -4933,7 +5127,11 @@ class haxe_iterators_StringIterator:
 
 
 class haxe_iterators_StringIteratorUnicode:
+    _hx_class_name = "haxe.iterators.StringIteratorUnicode"
     __slots__ = ("offset", "s")
+    _hx_fields = ["offset", "s"]
+    _hx_methods = ["hasNext", "next"]
+    _hx_statics = ["unicodeIterator"]
 
     def __init__(self,s):
         self.offset = 0
@@ -4962,7 +5160,10 @@ class haxe_iterators_StringIteratorUnicode:
 
 
 class haxe_iterators_StringKeyValueIterator:
+    _hx_class_name = "haxe.iterators.StringKeyValueIterator"
     __slots__ = ("offset", "s")
+    _hx_fields = ["offset", "s"]
+    _hx_methods = ["hasNext", "next"]
 
     def __init__(self,s):
         self.offset = 0
@@ -4985,7 +5186,9 @@ class haxe_iterators_StringKeyValueIterator:
 
 
 class python_Boot:
+    _hx_class_name = "python.Boot"
     __slots__ = ()
+    _hx_statics = ["keywords", "arrayJoin", "safeJoin", "isPyBool", "isPyInt", "isPyFloat", "isClass", "isAnonObject", "_add_dynamic", "toString", "toString1", "isMetaType", "fields", "isString", "isArray", "simpleField", "createClosure", "hasField", "field", "getInstanceFields", "getSuperClass", "getClassFields", "unsafeFastCodeAt", "handleKeywords", "prefixLength", "unhandleKeywords", "implementsInterface"]
 
     @staticmethod
     def arrayJoin(x,sep):
@@ -5511,7 +5714,10 @@ class python_Boot:
 
 
 class python_HaxeIterable:
+    _hx_class_name = "python.HaxeIterable"
     __slots__ = ("x",)
+    _hx_fields = ["x"]
+    _hx_methods = ["iterator"]
 
     def __init__(self,x):
         self.x = x
@@ -5525,7 +5731,9 @@ class python_HaxeIterable:
 
 
 class python__KwArgs_KwArgs_Impl_:
+    _hx_class_name = "python._KwArgs.KwArgs_Impl_"
     __slots__ = ()
+    _hx_statics = ["_new", "toDict", "toDictHelper", "fromDict", "fromT", "typed", "get"]
 
     @staticmethod
     def _new(d):
@@ -5560,7 +5768,9 @@ class python__KwArgs_KwArgs_Impl_:
 
 
 class python_Lib:
+    _hx_class_name = "python.Lib"
     __slots__ = ()
+    _hx_statics = ["lineEnd", "get___name__", "print", "printString", "println", "dictToAnon", "anonToDict", "anonAsDict", "dictAsAnon", "toPythonIterable", "toHaxeIterable", "toHaxeIterator"]
     __name__ = None
 
     @staticmethod
@@ -5635,7 +5845,9 @@ class python_Lib:
 
 
 class python__NativeIterable_NativeIterable_Impl_:
+    _hx_class_name = "python._NativeIterable.NativeIterable_Impl_"
     __slots__ = ()
+    _hx_statics = ["toHaxeIterable", "iterator"]
 
     @staticmethod
     def toHaxeIterable(this1):
@@ -5647,7 +5859,9 @@ class python__NativeIterable_NativeIterable_Impl_:
 
 
 class python__NativeIterator_NativeIterator_Impl_:
+    _hx_class_name = "python._NativeIterator.NativeIterator_Impl_"
     __slots__ = ()
+    _hx_statics = ["_new", "toHaxeIterator"]
 
     @staticmethod
     def _new(p):
@@ -5660,7 +5874,9 @@ class python__NativeIterator_NativeIterator_Impl_:
 
 
 class python_NativeStringTools:
+    _hx_class_name = "python.NativeStringTools"
     __slots__ = ()
+    _hx_statics = ["format", "encode", "contains", "strip", "rpartition", "startswith", "endswith"]
 
     @staticmethod
     def format(s,args):
@@ -5696,7 +5912,9 @@ class python_NativeStringTools:
 
 
 class python__VarArgs_VarArgs_Impl_:
+    _hx_class_name = "python._VarArgs.VarArgs_Impl_"
     __slots__ = ()
+    _hx_statics = ["_new", "raw", "toArray", "fromArray"]
 
     @staticmethod
     def _new(d):
@@ -5721,7 +5939,9 @@ class python__VarArgs_VarArgs_Impl_:
 
 
 class python_internal_ArrayImpl:
+    _hx_class_name = "python.internal.ArrayImpl"
     __slots__ = ()
+    _hx_statics = ["get_length", "concat", "copy", "iterator", "keyValueIterator", "indexOf", "lastIndexOf", "join", "toString", "pop", "push", "unshift", "remove", "contains", "shift", "slice", "sort", "splice", "map", "filter", "insert", "reverse", "_get", "_set", "unsafeGet", "unsafeSet", "resize"]
 
     @staticmethod
     def get_length(x):
@@ -5904,7 +6124,9 @@ class python_internal_ArrayImpl:
 
 
 class HxOverrides:
+    _hx_class_name = "HxOverrides"
     __slots__ = ()
+    _hx_statics = ["iterator", "keyValueIterator", "eq", "stringOrNull", "shift", "pop", "push", "join", "filter", "map", "toUpperCase", "toLowerCase", "split", "length", "rshift", "modf", "mod", "arrayGet", "arraySet", "mapKwArgs", "reverseMapKwArgs"]
 
     @staticmethod
     def iterator(x):
@@ -6088,11 +6310,15 @@ class HxOverrides:
 
 
 class python_internal_Internal:
+    _hx_class_name = "python.internal.Internal"
     __slots__ = ()
 
 
 class python_internal_MethodClosure:
+    _hx_class_name = "python.internal.MethodClosure"
     __slots__ = ("obj", "func")
+    _hx_fields = ["obj", "func"]
+    _hx_methods = ["__call__"]
 
     def __init__(self,obj,func):
         self.obj = obj
@@ -6108,7 +6334,9 @@ class python_internal_MethodClosure:
 
 
 class HxString:
+    _hx_class_name = "HxString"
     __slots__ = ()
+    _hx_statics = ["split", "charCodeAt", "charAt", "lastIndexOf", "toUpperCase", "toLowerCase", "indexOf", "indexOfImpl", "toString", "get_length", "fromCharCode", "substring", "substr"]
 
     @staticmethod
     def split(s,d):
@@ -6224,7 +6452,14 @@ class HxString:
 
 
 class python_io_NativeInput(haxe_io_Input):
+    _hx_class_name = "python.io.NativeInput"
     __slots__ = ("stream", "wasEof")
+    _hx_fields = ["stream", "wasEof"]
+    _hx_methods = ["get_canSeek", "close", "tell", "throwEof", "eof", "readinto", "seek", "readBytes"]
+    _hx_statics = []
+    _hx_interfaces = []
+    _hx_super = haxe_io_Input
+
 
     def __init__(self,s):
         self.wasEof = None
@@ -6273,11 +6508,21 @@ class python_io_NativeInput(haxe_io_Input):
 
 
 class python_io_IInput:
+    _hx_class_name = "python.io.IInput"
     __slots__ = ("bigEndian",)
+    _hx_fields = ["bigEndian"]
+    _hx_methods = ["set_bigEndian", "readByte", "readBytes", "close", "readAll", "readFullBytes", "read", "readUntil", "readLine", "readFloat", "readDouble", "readInt8", "readInt16", "readUInt16", "readInt24", "readUInt24", "readInt32", "readString"]
 
 
 class python_io_NativeBytesInput(python_io_NativeInput):
+    _hx_class_name = "python.io.NativeBytesInput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = ["readByte", "seek", "readinto"]
+    _hx_statics = []
+    _hx_interfaces = [python_io_IInput]
+    _hx_super = python_io_NativeInput
+
 
     def __init__(self,stream):
         super().__init__(stream)
@@ -6300,18 +6545,35 @@ class python_io_NativeBytesInput(python_io_NativeInput):
 
 
 class python_io_IFileInput:
+    _hx_class_name = "python.io.IFileInput"
     __slots__ = ()
+    _hx_methods = ["seek", "tell", "eof"]
+    _hx_interfaces = [python_io_IInput]
 
 
 class python_io_FileBytesInput(python_io_NativeBytesInput):
+    _hx_class_name = "python.io.FileBytesInput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = []
+    _hx_statics = []
+    _hx_interfaces = [python_io_IFileInput]
+    _hx_super = python_io_NativeBytesInput
+
 
     def __init__(self,stream):
         super().__init__(stream)
 
 
 class python_io_NativeOutput(haxe_io_Output):
+    _hx_class_name = "python.io.NativeOutput"
     __slots__ = ("stream",)
+    _hx_fields = ["stream"]
+    _hx_methods = ["get_canSeek", "close", "prepare", "flush", "tell"]
+    _hx_statics = []
+    _hx_interfaces = []
+    _hx_super = haxe_io_Output
+
 
     def __init__(self,stream):
         self.stream = None
@@ -6341,7 +6603,14 @@ class python_io_NativeOutput(haxe_io_Output):
 
 
 class python_io_NativeBytesOutput(python_io_NativeOutput):
+    _hx_class_name = "python.io.NativeBytesOutput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = ["seek", "prepare", "writeByte", "writeBytes"]
+    _hx_statics = []
+    _hx_interfaces = []
+    _hx_super = python_io_NativeOutput
+
 
     def __init__(self,stream):
         super().__init__(stream)
@@ -6363,22 +6632,42 @@ class python_io_NativeBytesOutput(python_io_NativeOutput):
 
 
 class python_io_IOutput:
+    _hx_class_name = "python.io.IOutput"
     __slots__ = ("bigEndian",)
+    _hx_fields = ["bigEndian"]
+    _hx_methods = ["set_bigEndian", "writeByte", "writeBytes", "flush", "close", "write", "writeFullBytes", "writeFloat", "writeDouble", "writeInt8", "writeInt16", "writeUInt16", "writeInt24", "writeUInt24", "writeInt32", "prepare", "writeInput", "writeString"]
 
 
 class python_io_IFileOutput:
+    _hx_class_name = "python.io.IFileOutput"
     __slots__ = ()
+    _hx_methods = ["seek", "tell"]
+    _hx_interfaces = [python_io_IOutput]
 
 
 class python_io_FileBytesOutput(python_io_NativeBytesOutput):
+    _hx_class_name = "python.io.FileBytesOutput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = []
+    _hx_statics = []
+    _hx_interfaces = [python_io_IFileOutput]
+    _hx_super = python_io_NativeBytesOutput
+
 
     def __init__(self,stream):
         super().__init__(stream)
 
 
 class python_io_NativeTextInput(python_io_NativeInput):
+    _hx_class_name = "python.io.NativeTextInput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = ["readByte", "seek", "readinto"]
+    _hx_statics = []
+    _hx_interfaces = [python_io_IInput]
+    _hx_super = python_io_NativeInput
+
 
     def __init__(self,stream):
         super().__init__(stream)
@@ -6401,14 +6690,28 @@ class python_io_NativeTextInput(python_io_NativeInput):
 
 
 class python_io_FileTextInput(python_io_NativeTextInput):
+    _hx_class_name = "python.io.FileTextInput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = []
+    _hx_statics = []
+    _hx_interfaces = [python_io_IFileInput]
+    _hx_super = python_io_NativeTextInput
+
 
     def __init__(self,stream):
         super().__init__(stream)
 
 
 class python_io_NativeTextOutput(python_io_NativeOutput):
+    _hx_class_name = "python.io.NativeTextOutput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = ["seek", "writeBytes", "writeByte"]
+    _hx_statics = []
+    _hx_interfaces = []
+    _hx_super = python_io_NativeOutput
+
 
     def __init__(self,stream):
         super().__init__(stream)
@@ -6429,14 +6732,23 @@ class python_io_NativeTextOutput(python_io_NativeOutput):
 
 
 class python_io_FileTextOutput(python_io_NativeTextOutput):
+    _hx_class_name = "python.io.FileTextOutput"
     __slots__ = ()
+    _hx_fields = []
+    _hx_methods = []
+    _hx_statics = []
+    _hx_interfaces = [python_io_IFileOutput]
+    _hx_super = python_io_NativeTextOutput
+
 
     def __init__(self,stream):
         super().__init__(stream)
 
 
 class python_io_IoTools:
+    _hx_class_name = "python.io.IoTools"
     __slots__ = ()
+    _hx_statics = ["createFileInputFromText", "createFileInputFromBytes", "createFileOutputFromText", "createFileOutputFromBytes", "seekInTextMode", "seekInBinaryMode"]
 
     @staticmethod
     def createFileInputFromText(t):
@@ -6487,7 +6799,9 @@ class python_io_IoTools:
 
 
 class python_lib__Re_Choice_Impl_:
+    _hx_class_name = "python.lib._Re.Choice_Impl_"
     __slots__ = ()
+    _hx_statics = ["fromA", "fromB"]
 
     @staticmethod
     def fromA(x):
@@ -6499,7 +6813,9 @@ class python_lib__Re_Choice_Impl_:
 
 
 class python_lib__Re_RegexHelper:
+    _hx_class_name = "python.lib._Re.RegexHelper"
     __slots__ = ()
+    _hx_statics = ["findallDynamic"]
 
     @staticmethod
     def findallDynamic(r,string,pos = None,endpos = None):
@@ -6513,7 +6829,14 @@ class python_lib__Re_RegexHelper:
 
 
 class sys_io_FileInput(haxe_io_Input):
+    _hx_class_name = "sys.io.FileInput"
     __slots__ = ("impl",)
+    _hx_fields = ["impl"]
+    _hx_methods = ["set_bigEndian", "seek", "tell", "eof", "readByte", "readBytes", "close", "readAll", "readFullBytes", "read", "readUntil", "readLine", "readFloat", "readDouble", "readInt8", "readInt16", "readUInt16", "readInt24", "readUInt24", "readInt32", "readString"]
+    _hx_statics = []
+    _hx_interfaces = []
+    _hx_super = haxe_io_Input
+
 
     def __init__(self,impl):
         self.impl = impl
@@ -6587,7 +6910,14 @@ class sys_io_FileInput(haxe_io_Input):
 
 
 class sys_io_FileOutput(haxe_io_Output):
+    _hx_class_name = "sys.io.FileOutput"
     __slots__ = ("impl",)
+    _hx_fields = ["impl"]
+    _hx_methods = ["seek", "tell", "set_bigEndian", "writeByte", "writeBytes", "flush", "close", "write", "writeFullBytes", "writeFloat", "writeDouble", "writeInt8", "writeInt16", "writeUInt16", "writeInt24", "writeUInt24", "writeInt32", "prepare", "writeInput", "writeString"]
+    _hx_statics = []
+    _hx_interfaces = []
+    _hx_super = haxe_io_Output
+
 
     def __init__(self,impl):
         self.impl = impl
@@ -6658,6 +6988,8 @@ class sys_io_FileOutput(haxe_io_Output):
 
 class sys_io_FileSeek(Enum):
     __slots__ = ()
+    _hx_class_name = "sys.io.FileSeek"
+    _hx_constructs = ["SeekBegin", "SeekCur", "SeekEnd"]
 sys_io_FileSeek.SeekBegin = sys_io_FileSeek("SeekBegin", 0, ())
 sys_io_FileSeek.SeekCur = sys_io_FileSeek("SeekCur", 1, ())
 sys_io_FileSeek.SeekEnd = sys_io_FileSeek("SeekEnd", 2, ())

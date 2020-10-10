@@ -5,45 +5,37 @@ class EnglishAuction:
 	Also supports reserve price and automatic bidding.
 	"""
 
-	def Create(start: int, end: int, startingPrice: int, reservePrice: int) -> bool:
+	def Create(start: int, end: int, startingPrice: int, reservePrice: int, priceIncrement: int) -> bool:
 		"""		Create a new auction
 		Args:
 			start (int):start time of auction
 			end (int):end time of auction
 			startingPrice (int):starting price of auction
 			reservePrice (int):reserve price for the auction (0 = none)
+			priceIncrement (int):price increments for bids in the auction
 		Returns:
 			RET HERE
 		"""
-	def Bid(auctionId: int, userId: int, price: int) -> bool:
-		"""		Bid in an auction
+	def GetStart(auctionId: int) -> bool:
+		"""		Get the start of an auction
+		Will return a timestamp in milliseconds
 		Args:
-			auctionId (int):auction id to bid in
-			userId (int):user id that's bidding
-			price (int):bid price
+			auctionId (int):auction id
 		Returns:
 			RET HERE
 		"""
-	def AutoBid(auctionId: int, userId: int, price: int) -> bool:
-		"""		Automatically bid against others in an auction (up to the specified amount)
+	def GetEnd(auctionId: int) -> bool:
+		"""		Check if auction has ended
 		Args:
-			auctionId (int):auction id to bid in
-			userId (int):user id that's bidding
-			price (int):bid price
+			auctionId (int):auction id
 		Returns:
 			RET HERE
 		"""
-	def ForceClose(auctionId: int, userId: int, price: int) -> bool:
-		"""		Force an auction to close and specify the winning bid.
+	def HasStarted(auctionId: int) -> bool:
+		"""		Check if an auction has started yet
 		Args:
-			auctionId (int):auction id to bid in
-			userId (int):user id that's bidding
-			price (int):bid price
+			auctionId (int):auction id
 		Returns:
 			RET HERE
-		"""
-	def Status():
-		"""		TBD
-		Args:
 		"""
 #END
