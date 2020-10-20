@@ -1,6 +1,0 @@
-englishauction.py
-setup.py
-mindpowered_englishauction.egg-info/PKG-INFO
-mindpowered_englishauction.egg-info/SOURCES.txt
-mindpowered_englishauction.egg-info/dependency_links.txt
-mindpowered_englishauction.egg-info/top_level.txt

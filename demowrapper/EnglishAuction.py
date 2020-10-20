@@ -38,4 +38,33 @@ class EnglishAuction:
 		Returns:
 			RET HERE
 		"""
+	def Bid(auctionId: int, userId: int, price: int):
+		"""		Create a bid in an auction
+		Args:
+			auctionId (int):auction id
+			userId (int):user id
+			price (int):price bud
+		"""
+	def GetHighestBidder(auctionId: int) -> bool:
+		"""		Get the highest bidder in an auction
+		Args:
+			auctionId (int):auction id
+		Returns:
+			RET HERE
+		"""
+	def GetHighestBids(auctionId: int, numBids: int) -> bool:
+		"""		Get the highest bids in an auction
+		Args:
+			auctionId (int):auction id
+			numBids (int):max number of highest bids to return
+		Returns:
+			RET HERE
+		"""
+	def GetNumberOfBids(auctionId: int) -> bool:
+		"""		Get the number of bids in an auction
+		Args:
+			auctionId (int):auction id
+		Returns:
+			RET HERE
+		"""
 #END
