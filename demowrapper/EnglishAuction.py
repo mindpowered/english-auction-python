@@ -67,4 +67,11 @@ class EnglishAuction:
 		Returns:
 			RET HERE
 		"""
+	def GetPriceIncrement(auctionId: int) -> bool:
+		"""		Get the price increment for the specified auction
+		Args:
+			auctionId (int):auction id
+		Returns:
+			RET HERE
+		"""
 #END
