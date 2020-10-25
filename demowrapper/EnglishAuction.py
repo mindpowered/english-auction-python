@@ -74,4 +74,33 @@ class EnglishAuction:
 		Returns:
 			RET HERE
 		"""
+	def GetReservePrice(auctionId: int) -> bool:
+		"""		Get the reserve price for the specified auction
+		Args:
+			auctionId (int):auction id
+		Returns:
+			RET HERE
+		"""
+	def GetStartingPrice(auctionId: int) -> bool:
+		"""		Get the starting price for the specified auction
+		Args:
+			auctionId (int):auction id
+		Returns:
+			RET HERE
+		"""
+	def CalcTimeRemaining(auctionId: int, now: int) -> bool:
+		"""		Get the time remaining for the specified auction
+		Args:
+			auctionId (int):auction id
+			now (int):current unix timestamp
+		Returns:
+			RET HERE
+		"""
+	def CalcMinimumBid(auctionId: int) -> bool:
+		"""		Get the minimum next bid for the specified auction
+		Args:
+			auctionId (int):auction id
+		Returns:
+			RET HERE
+		"""
 #END
