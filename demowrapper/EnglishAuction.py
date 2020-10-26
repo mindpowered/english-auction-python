@@ -103,4 +103,16 @@ class EnglishAuction:
 		Returns:
 			RET HERE
 		"""
+	def GetAuctionsEnding(endfrom: int, endto: int, page: int, perpage: int, sort: int, asc: int) -> bool:
+		"""		Get a list of auctions based on their end time
+		Args:
+			endfrom (int):end from
+			endto (int):end to
+			page (int):
+			perpage (int):number of auctions per page
+			sort (int):field to sort by
+			asc (int):ascending (true) or descending (false)
+		Returns:
+			RET HERE
+		"""
 #END
