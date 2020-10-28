@@ -4,7 +4,7 @@ import setuptools
     #long_description = fh.read()
 setuptools.setup(
      name='mindpowered-englishauction',
-     version='0.0.29',
+     version='0.0.30',
      author="Mind Powered Corporation",
      author_email="support@mindpowered.dev",
      license="CPAL-1.0",

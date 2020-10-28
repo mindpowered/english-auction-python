@@ -115,4 +115,26 @@ class EnglishAuction:
 		Returns:
 			RET HERE
 		"""
+	def GetAuctionsStarting(startfrom: int, startto: int, page: int, perpage: int, sort: int, asc: int) -> bool:
+		"""		Get a list of auctions based on their start time
+		Args:
+			startfrom (int):start from
+			startto (int):start to
+			page (int):
+			perpage (int):number of auctions per page
+			sort (int):field to sort by
+			asc (int):ascending (true) or descending (false)
+		Returns:
+			RET HERE
+		"""
+	def GetOpenAuctions(page: int, perpage: int, sort: int, asc: int) -> bool:
+		"""		Get a list of currently running auctions
+		Args:
+			page (int):
+			perpage (int):number of auctions per page
+			sort (int):field to sort by
+			asc (int):ascending (true) or descending (false)
+		Returns:
+			RET HERE
+		"""
 #END

@@ -1829,7 +1829,7 @@ class englishauction_AuctionRepository:
     _hx_class_name = "englishauction.AuctionRepository"
     __slots__ = ("bus",)
     _hx_fields = ["bus"]
-    _hx_methods = ["Add", "Edit", "Remove", "FindById", "FindAuctionsEnding"]
+    _hx_methods = ["Add", "Edit", "Remove", "FindById", "FindAuctionsEnding", "FindAuctionsStarting", "FindOpenAuctions"]
 
     def __init__(self,bus):
         self.bus = bus
@@ -1847,7 +1847,9 @@ class englishauction_AuctionRepository:
         myargs = maglev_MagLevArray.create()
         myargs.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
         myargs.push(maglev_MagLevString.fromString("FindById"))
-        myargs.push(maglev_MagLevString.fromString(auctionId))
+        myargs2 = maglev_MagLevArray.create()
+        myargs2.push(maglev_MagLevString.fromString(auctionId))
+        myargs.push(myargs2)
         res = self.bus.call("Persistence.Get",myargs)
         if res.isError():
             raise haxe_Exception.thrown(res.getError().getMessage())
@@ -1997,6 +1999,174 @@ class englishauction_AuctionRepository:
             i = (i + 1)
         return auctions
 
+    def FindAuctionsStarting(self,startfrom,startto,page,perpage,sort,asc):
+        auctions = list()
+        myargs = maglev_MagLevArray.create()
+        myargs.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
+        myargs.push(maglev_MagLevString.fromString("FindStarting"))
+        myargs2 = maglev_MagLevArray.create()
+        myargs2.push(maglev_MagLevNumber.fromInt(startfrom))
+        myargs2.push(maglev_MagLevNumber.fromInt(startto))
+        myargs2.push(maglev_MagLevNumber.fromInt(page))
+        myargs2.push(maglev_MagLevNumber.fromInt(perpage))
+        myargs2.push(maglev_MagLevString.fromString(sort))
+        myargs2.push(maglev_MagLevBoolean.fromBool(asc))
+        myargs.push(myargs2)
+        res = self.bus.call("Persistence.Get",myargs)
+        def _hx_local_1():
+            _hx_local_0 = res.getResult()
+            if (Std.isOfType(_hx_local_0,maglev_MagLevArray) or ((_hx_local_0 is None))):
+                _hx_local_0
+            else:
+                raise "Class cast error"
+            return _hx_local_0
+        arr = _hx_local_1()
+        i = 0
+        while (i < arr.size()):
+            model = englishauction_AuctionModel()
+            def _hx_local_3():
+                _hx_local_2 = arr.get(i)
+                if (Std.isOfType(_hx_local_2,maglev_MagLevObject) or ((_hx_local_2 is None))):
+                    _hx_local_2
+                else:
+                    raise "Class cast error"
+                return _hx_local_2
+            resobj = _hx_local_3()
+            def _hx_local_5():
+                _hx_local_4 = resobj.get("auctionId")
+                if (Std.isOfType(_hx_local_4,maglev_MagLevString) or ((_hx_local_4 is None))):
+                    _hx_local_4
+                else:
+                    raise "Class cast error"
+                return _hx_local_4
+            model.id = (_hx_local_5()).getString()
+            def _hx_local_7():
+                _hx_local_6 = resobj.get("start")
+                if (Std.isOfType(_hx_local_6,maglev_MagLevNumber) or ((_hx_local_6 is None))):
+                    _hx_local_6
+                else:
+                    raise "Class cast error"
+                return _hx_local_6
+            model.start = (_hx_local_7()).getInt()
+            def _hx_local_9():
+                _hx_local_8 = resobj.get("end")
+                if (Std.isOfType(_hx_local_8,maglev_MagLevNumber) or ((_hx_local_8 is None))):
+                    _hx_local_8
+                else:
+                    raise "Class cast error"
+                return _hx_local_8
+            model.end = (_hx_local_9()).getInt()
+            def _hx_local_11():
+                _hx_local_10 = resobj.get("startingPrice")
+                if (Std.isOfType(_hx_local_10,maglev_MagLevNumber) or ((_hx_local_10 is None))):
+                    _hx_local_10
+                else:
+                    raise "Class cast error"
+                return _hx_local_10
+            model.startingPrice = (_hx_local_11()).getFloat()
+            def _hx_local_13():
+                _hx_local_12 = resobj.get("reservePrice")
+                if (Std.isOfType(_hx_local_12,maglev_MagLevNumber) or ((_hx_local_12 is None))):
+                    _hx_local_12
+                else:
+                    raise "Class cast error"
+                return _hx_local_12
+            model.reservePrice = (_hx_local_13()).getFloat()
+            def _hx_local_15():
+                _hx_local_14 = resobj.get("priceIncrement")
+                if (Std.isOfType(_hx_local_14,maglev_MagLevNumber) or ((_hx_local_14 is None))):
+                    _hx_local_14
+                else:
+                    raise "Class cast error"
+                return _hx_local_14
+            model.priceIncrement = (_hx_local_15()).getFloat()
+            auctions.append(model)
+            i = (i + 1)
+        return auctions
+
+    def FindOpenAuctions(self,page,perpage,sort,asc):
+        auctions = list()
+        myargs = maglev_MagLevArray.create()
+        myargs.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
+        myargs.push(maglev_MagLevString.fromString("FindOpen"))
+        myargs2 = maglev_MagLevArray.create()
+        myargs2.push(maglev_MagLevNumber.fromInt(page))
+        myargs2.push(maglev_MagLevNumber.fromInt(perpage))
+        myargs2.push(maglev_MagLevString.fromString(sort))
+        myargs2.push(maglev_MagLevBoolean.fromBool(asc))
+        myargs.push(myargs2)
+        res = self.bus.call("Persistence.Get",myargs)
+        def _hx_local_1():
+            _hx_local_0 = res.getResult()
+            if (Std.isOfType(_hx_local_0,maglev_MagLevArray) or ((_hx_local_0 is None))):
+                _hx_local_0
+            else:
+                raise "Class cast error"
+            return _hx_local_0
+        arr = _hx_local_1()
+        i = 0
+        while (i < arr.size()):
+            model = englishauction_AuctionModel()
+            def _hx_local_3():
+                _hx_local_2 = arr.get(i)
+                if (Std.isOfType(_hx_local_2,maglev_MagLevObject) or ((_hx_local_2 is None))):
+                    _hx_local_2
+                else:
+                    raise "Class cast error"
+                return _hx_local_2
+            resobj = _hx_local_3()
+            def _hx_local_5():
+                _hx_local_4 = resobj.get("auctionId")
+                if (Std.isOfType(_hx_local_4,maglev_MagLevString) or ((_hx_local_4 is None))):
+                    _hx_local_4
+                else:
+                    raise "Class cast error"
+                return _hx_local_4
+            model.id = (_hx_local_5()).getString()
+            def _hx_local_7():
+                _hx_local_6 = resobj.get("start")
+                if (Std.isOfType(_hx_local_6,maglev_MagLevNumber) or ((_hx_local_6 is None))):
+                    _hx_local_6
+                else:
+                    raise "Class cast error"
+                return _hx_local_6
+            model.start = (_hx_local_7()).getInt()
+            def _hx_local_9():
+                _hx_local_8 = resobj.get("end")
+                if (Std.isOfType(_hx_local_8,maglev_MagLevNumber) or ((_hx_local_8 is None))):
+                    _hx_local_8
+                else:
+                    raise "Class cast error"
+                return _hx_local_8
+            model.end = (_hx_local_9()).getInt()
+            def _hx_local_11():
+                _hx_local_10 = resobj.get("startingPrice")
+                if (Std.isOfType(_hx_local_10,maglev_MagLevNumber) or ((_hx_local_10 is None))):
+                    _hx_local_10
+                else:
+                    raise "Class cast error"
+                return _hx_local_10
+            model.startingPrice = (_hx_local_11()).getFloat()
+            def _hx_local_13():
+                _hx_local_12 = resobj.get("reservePrice")
+                if (Std.isOfType(_hx_local_12,maglev_MagLevNumber) or ((_hx_local_12 is None))):
+                    _hx_local_12
+                else:
+                    raise "Class cast error"
+                return _hx_local_12
+            model.reservePrice = (_hx_local_13()).getFloat()
+            def _hx_local_15():
+                _hx_local_14 = resobj.get("priceIncrement")
+                if (Std.isOfType(_hx_local_14,maglev_MagLevNumber) or ((_hx_local_14 is None))):
+                    _hx_local_14
+                else:
+                    raise "Class cast error"
+                return _hx_local_14
+            model.priceIncrement = (_hx_local_15()).getFloat()
+            auctions.append(model)
+            i = (i + 1)
+        return auctions
+
     @staticmethod
     def _hx_empty_init(_hx_o):
         _hx_o.bus = None
@@ -2027,7 +2197,7 @@ class englishauction_BidRepository:
     _hx_class_name = "englishauction.BidRepository"
     __slots__ = ("bus",)
     _hx_fields = ["bus"]
-    _hx_methods = ["Add", "Edit", "Remove", "FindById", "GetNumberOfBids"]
+    _hx_methods = ["Add", "Edit", "Remove", "FindById", "GetNumberOfBids", "GetHighestBids"]
 
     def __init__(self,bus):
         self.bus = bus
@@ -2061,6 +2231,74 @@ class englishauction_BidRepository:
                 return _hx_local_0
             count = (_hx_local_1()).getInt()
         return count
+
+    def GetHighestBids(self,auctionId,numBids):
+        myargs = maglev_MagLevArray.create()
+        myargs.push(maglev_MagLevString.fromString(auctionId))
+        myargs.push(maglev_MagLevNumber.fromInt(numBids))
+        myargs2 = maglev_MagLevArray.create()
+        myargs2.push(maglev_MagLevString.fromString("EnglishAuction.Bid"))
+        myargs2.push(maglev_MagLevString.fromString("FindByHighestPriceForAuction"))
+        myargs2.push(myargs)
+        res = self.bus.call("Persistence.Get",myargs2)
+        def _hx_local_1():
+            _hx_local_0 = res.getResult()
+            if (Std.isOfType(_hx_local_0,maglev_MagLevArray) or ((_hx_local_0 is None))):
+                _hx_local_0
+            else:
+                raise "Class cast error"
+            return _hx_local_0
+        arr = _hx_local_1()
+        bids = list()
+        i = 0
+        while (i < arr.size()):
+            model = englishauction_BidModel()
+            def _hx_local_3():
+                _hx_local_2 = arr.get(i)
+                if (Std.isOfType(_hx_local_2,maglev_MagLevObject) or ((_hx_local_2 is None))):
+                    _hx_local_2
+                else:
+                    raise "Class cast error"
+                return _hx_local_2
+            resobj = _hx_local_3()
+            def _hx_local_5():
+                _hx_local_4 = resobj.get("bidId")
+                if (Std.isOfType(_hx_local_4,maglev_MagLevString) or ((_hx_local_4 is None))):
+                    _hx_local_4
+                else:
+                    raise "Class cast error"
+                return _hx_local_4
+            model.id = (_hx_local_5()).getString()
+            if resobj.exists("auctionId"):
+                def _hx_local_7():
+                    _hx_local_6 = resobj.get("auctionId")
+                    if (Std.isOfType(_hx_local_6,maglev_MagLevString) or ((_hx_local_6 is None))):
+                        _hx_local_6
+                    else:
+                        raise "Class cast error"
+                    return _hx_local_6
+                model.auctionId = (_hx_local_7()).getString()
+            else:
+                model.auctionId = auctionId
+            def _hx_local_9():
+                _hx_local_8 = resobj.get("userId")
+                if (Std.isOfType(_hx_local_8,maglev_MagLevString) or ((_hx_local_8 is None))):
+                    _hx_local_8
+                else:
+                    raise "Class cast error"
+                return _hx_local_8
+            model.userId = (_hx_local_9()).getString()
+            def _hx_local_11():
+                _hx_local_10 = resobj.get("price")
+                if (Std.isOfType(_hx_local_10,maglev_MagLevNumber) or ((_hx_local_10 is None))):
+                    _hx_local_10
+                else:
+                    raise "Class cast error"
+                return _hx_local_10
+            model.amount = (_hx_local_11()).getFloat()
+            bids.append(model)
+            i = (i + 1)
+        return bids
 
     @staticmethod
     def _hx_empty_init(_hx_o):
@@ -2510,8 +2748,19 @@ class englishauction_EnglishAuction:
                 error = maglev_MagLevError.create(0,"auction not found",maglev_MagLevNull.create())
                 return maglev_MagLevResult.fromError(error)
             else:
-                return maglev_MagLevResult.fromResult(maglev_MagLevNull.create())
-        self.maglev.register("EnglishAuction.GetMinimumBid",maglev_MagLevFunction.fromFunction(_hx_local_66))
+                highestBid = 0
+                bids = _gthis.bidRepo.GetHighestBids(auctionId,1)
+                if (len(bids) > 0):
+                    highestBid = (bids[0] if 0 < len(bids) else None).amount
+                minBid = 0.00
+                b = (highestBid + auction.priceIncrement)
+                if (not python_lib_Math.isnan(minBid)):
+                    minBid = (b if (python_lib_Math.isnan(b)) else max(minBid,b))
+                b = auction.startingPrice
+                if (not python_lib_Math.isnan(minBid)):
+                    minBid = (b if (python_lib_Math.isnan(b)) else max(minBid,b))
+                return maglev_MagLevResult.fromResult(maglev_MagLevNumber.fromFloat(minBid))
+        self.maglev.register("EnglishAuction.CalcMinimumBid",maglev_MagLevFunction.fromFunction(_hx_local_66))
         def _hx_local_71(args):
             def _hx_local_68():
                 _hx_local_67 = args.get(0)
@@ -2546,7 +2795,7 @@ class englishauction_EnglishAuction:
                 if (timeRemaining < 0):
                     timeRemaining = 0
                 return maglev_MagLevResult.fromResult(maglev_MagLevNumber.fromInt(timeRemaining))
-        self.maglev.register("EnglishAuction.GetTimeRemaining",maglev_MagLevFunction.fromFunction(_hx_local_71))
+        self.maglev.register("EnglishAuction.CalcTimeRemaining",maglev_MagLevFunction.fromFunction(_hx_local_71))
         def _hx_local_85(args):
             def _hx_local_73():
                 _hx_local_72 = args.get(0)
@@ -2593,7 +2842,7 @@ class englishauction_EnglishAuction:
                 sort = (_hx_local_81()).getString()
             if (args.size() > 5):
                 def _hx_local_83():
-                    _hx_local_82 = args.get(4)
+                    _hx_local_82 = args.get(5)
                     if (Std.isOfType(_hx_local_82,maglev_MagLevBoolean) or ((_hx_local_82 is None))):
                         _hx_local_82
                     else:
@@ -2610,12 +2859,116 @@ class englishauction_EnglishAuction:
                 results.push(result)
             return maglev_MagLevResult.fromResult(results)
         self.maglev.register("EnglishAuction.GetAuctionsEnding",maglev_MagLevFunction.fromFunction(_hx_local_85))
-        def _hx_local_86(args):
-            return maglev_MagLevResult.fromResult(maglev_MagLevNull.create())
-        self.maglev.register("EnglishAuction.GetAuctionsStarting",maglev_MagLevFunction.fromFunction(_hx_local_86))
-        def _hx_local_87(args):
-            return maglev_MagLevResult.fromResult(maglev_MagLevNull.create())
-        self.maglev.register("EnglishAuction.GetOpenAuctions",maglev_MagLevFunction.fromFunction(_hx_local_87))
+        def _hx_local_99(args):
+            def _hx_local_87():
+                _hx_local_86 = args.get(0)
+                if (Std.isOfType(_hx_local_86,maglev_MagLevNumber) or ((_hx_local_86 is None))):
+                    _hx_local_86
+                else:
+                    raise "Class cast error"
+                return _hx_local_86
+            endfrom = (_hx_local_87()).getInt()
+            def _hx_local_89():
+                _hx_local_88 = args.get(1)
+                if (Std.isOfType(_hx_local_88,maglev_MagLevNumber) or ((_hx_local_88 is None))):
+                    _hx_local_88
+                else:
+                    raise "Class cast error"
+                return _hx_local_88
+            endto = (_hx_local_89()).getInt()
+            def _hx_local_91():
+                _hx_local_90 = args.get(2)
+                if (Std.isOfType(_hx_local_90,maglev_MagLevNumber) or ((_hx_local_90 is None))):
+                    _hx_local_90
+                else:
+                    raise "Class cast error"
+                return _hx_local_90
+            page = (_hx_local_91()).getInt()
+            def _hx_local_93():
+                _hx_local_92 = args.get(3)
+                if (Std.isOfType(_hx_local_92,maglev_MagLevNumber) or ((_hx_local_92 is None))):
+                    _hx_local_92
+                else:
+                    raise "Class cast error"
+                return _hx_local_92
+            perpage = (_hx_local_93()).getInt()
+            sort = "end"
+            asc = True
+            if (args.size() > 4):
+                def _hx_local_95():
+                    _hx_local_94 = args.get(4)
+                    if (Std.isOfType(_hx_local_94,maglev_MagLevString) or ((_hx_local_94 is None))):
+                        _hx_local_94
+                    else:
+                        raise "Class cast error"
+                    return _hx_local_94
+                sort = (_hx_local_95()).getString()
+            if (args.size() > 5):
+                def _hx_local_97():
+                    _hx_local_96 = args.get(5)
+                    if (Std.isOfType(_hx_local_96,maglev_MagLevBoolean) or ((_hx_local_96 is None))):
+                        _hx_local_96
+                    else:
+                        raise "Class cast error"
+                    return _hx_local_96
+                asc = (_hx_local_97()).getBool()
+            auctions = _gthis.auctionRepo.FindAuctionsStarting(endfrom,endto,page,perpage,sort,asc)
+            results = maglev_MagLevArray.create()
+            _g = 0
+            while (_g < len(auctions)):
+                auction = (auctions[_g] if _g >= 0 and _g < len(auctions) else None)
+                _g = (_g + 1)
+                result = _gthis.auctionModelToMagLevObject(auction)
+                results.push(result)
+            return maglev_MagLevResult.fromResult(results)
+        self.maglev.register("EnglishAuction.GetAuctionsStarting",maglev_MagLevFunction.fromFunction(_hx_local_99))
+        def _hx_local_109(args):
+            def _hx_local_101():
+                _hx_local_100 = args.get(0)
+                if (Std.isOfType(_hx_local_100,maglev_MagLevNumber) or ((_hx_local_100 is None))):
+                    _hx_local_100
+                else:
+                    raise "Class cast error"
+                return _hx_local_100
+            page = (_hx_local_101()).getInt()
+            def _hx_local_103():
+                _hx_local_102 = args.get(1)
+                if (Std.isOfType(_hx_local_102,maglev_MagLevNumber) or ((_hx_local_102 is None))):
+                    _hx_local_102
+                else:
+                    raise "Class cast error"
+                return _hx_local_102
+            perpage = (_hx_local_103()).getInt()
+            sort = "end"
+            asc = True
+            if (args.size() > 2):
+                def _hx_local_105():
+                    _hx_local_104 = args.get(2)
+                    if (Std.isOfType(_hx_local_104,maglev_MagLevString) or ((_hx_local_104 is None))):
+                        _hx_local_104
+                    else:
+                        raise "Class cast error"
+                    return _hx_local_104
+                sort = (_hx_local_105()).getString()
+            if (args.size() > 3):
+                def _hx_local_107():
+                    _hx_local_106 = args.get(3)
+                    if (Std.isOfType(_hx_local_106,maglev_MagLevBoolean) or ((_hx_local_106 is None))):
+                        _hx_local_106
+                    else:
+                        raise "Class cast error"
+                    return _hx_local_106
+                asc = (_hx_local_107()).getBool()
+            auctions = _gthis.auctionRepo.FindOpenAuctions(page,perpage,sort,asc)
+            results = maglev_MagLevArray.create()
+            _g = 0
+            while (_g < len(auctions)):
+                auction = (auctions[_g] if _g >= 0 and _g < len(auctions) else None)
+                _g = (_g + 1)
+                result = _gthis.auctionModelToMagLevObject(auction)
+                results.push(result)
+            return maglev_MagLevResult.fromResult(results)
+        self.maglev.register("EnglishAuction.GetOpenAuctions",maglev_MagLevFunction.fromFunction(_hx_local_109))
 
     def auctionModelToMagLevObject(self,m):
         o = maglev_MagLevObject.create()
