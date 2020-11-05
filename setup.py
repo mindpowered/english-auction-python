@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='mindpowered-englishauction',
-    version='0.0.33',
+    version='0.0.34',
     author="Mind Powered Corporation",
     author_email="support@mindpowered.dev",
     license="CPAL-1.0",
@@ -12,11 +12,13 @@ setuptools.setup(
     description="EnglishAuction",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    py_modules=['englishauction'],
-    packages=['mindpowered-englishauction'],
-    package_dir={'mindpowered-englishauction': 'wrappers'},
+    packages=['mindpowered.englishauction', 'englishauction'],
+    package_dir={'mindpowered.englishauction': '', 'englishauction': 'wrappers'},
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
- )
+    install_requires=[
+        'mindpowered-maglev',
+    ],
+)
