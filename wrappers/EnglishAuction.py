@@ -2,6 +2,8 @@ import maglev
 import englishauction
 import persistence
 
+from typing import Any, List
+
 class EnglishAuction:
 	"""
 	An Auction Library
@@ -89,7 +91,7 @@ class EnglishAuction:
 		ret = pybus.call('EnglishAuction.GetHighestBidder', args);
 		return ret;
 
-	def GetHighestBids(self, auctionId: str, numBids: float) -> list[Any]:
+	def GetHighestBids(self, auctionId: str, numBids: float) -> List[Any]:
 		"""		Get the highest bids in an auction
 		Args:
 			auctionId (str):auction id
@@ -175,7 +177,7 @@ class EnglishAuction:
 		ret = pybus.call('EnglishAuction.CalcMinimumBid', args);
 		return ret;
 
-	def GetAuctionsEnding(self, endfrom: float, endto: float, page: float, perpage: float, sort: str, asc: bool) -> list[Any]:
+	def GetAuctionsEnding(self, endfrom: float, endto: float, page: float, perpage: float, sort: str, asc: bool) -> List[Any]:
 		"""		Get a list of auctions based on their end time
 		Args:
 			endfrom (float):end from
@@ -192,7 +194,7 @@ class EnglishAuction:
 		ret = pybus.call('EnglishAuction.GetAuctionsEnding', args);
 		return ret;
 
-	def GetAuctionsStarting(self, startfrom: float, startto: float, page: float, perpage: float, sort: str, asc: bool) -> list[Any]:
+	def GetAuctionsStarting(self, startfrom: float, startto: float, page: float, perpage: float, sort: str, asc: bool) -> List[Any]:
 		"""		Get a list of auctions based on their start time
 		Args:
 			startfrom (float):start from
@@ -209,7 +211,7 @@ class EnglishAuction:
 		ret = pybus.call('EnglishAuction.GetAuctionsStarting', args);
 		return ret;
 
-	def GetOpenAuctions(self, page: float, perpage: float, sort: str, asc: bool) -> list[Any]:
+	def GetOpenAuctions(self, page: float, perpage: float, sort: str, asc: bool) -> List[Any]:
 		"""		Get a list of currently running auctions
 		Args:
 			page (float):
