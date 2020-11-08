@@ -226,5 +226,58 @@ class EnglishAuction:
 		ret = pybus.call('EnglishAuction.GetOpenAuctions', args);
 		return ret;
 
+	def SetupCreateNewAuction(self, strategyMethod: function):
+		"""		Set up a method to create a new auction
+		Args:
+			strategyMethod (function):
+		"""
+		recordType = "EnglishAuction.Auction"
+		operationName = "CreateNew"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		pybus.call('Persistence.AddMutator', args);
+
+	def SetupFindAuctionById(self, strategyMethod: function) -> object:
+		"""		Set up a query method to find auctions by id
+		Args:
+			strategyMethod (function):
+		Returns:
+			The auction or null
+		"""
+		recordType = "EnglishAuction.Auction"
+		operationName = "FindById"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		ret = pybus.call('EnglishAuction.SetupFindAuctionById', args);
+		return ret;
+
+	def SetupFindAuctionStarting(self, strategyMethod: function) -> List[Any]:
+		"""		Set up a query method to find auctions by their start time
+		Args:
+			strategyMethod (function):
+		Returns:
+			A list of auctions
+		"""
+		recordType = "EnglishAuction.Auction"
+		operationName = "FindStarting"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		ret = pybus.call('EnglishAuction.SetupFindAuctionStarting', args);
+		return ret;
+
+	def SetupFindAuctionEnd(self, strategyMethod: function) -> List[Any]:
+		"""		Set up a query method to find auctions by their end time
+		Args:
+			strategyMethod (function):
+		Returns:
+			A list of auctions
+		"""
+		recordType = "EnglishAuction.Auction"
+		operationName = "FindEnding"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		ret = pybus.call('EnglishAuction.SetupFindAuctionEnd', args);
+		return ret;
+
 
 
