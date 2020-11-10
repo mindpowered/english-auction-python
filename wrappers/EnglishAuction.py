@@ -226,19 +226,22 @@ class EnglishAuction:
 		ret = pybus.call('EnglishAuction.GetOpenAuctions', args);
 		return ret;
 
-	def SetupCreateNewAuction(self, strategyMethod: function):
-		"""		Set up a method to create a new auction
+	def SetupNewAuctionQueryCallback(self, strategyMethod: function) -> str:
+		"""		Provide a callback used to store new auctions (eg. in a database) and return the ID of the new auction.
 		Args:
 			strategyMethod (function):
+		Returns:
+			new auction id
 		"""
 		recordType = "EnglishAuction.Auction"
 		operationName = "CreateNew"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		pybus.call('Persistence.AddMutator', args);
+		ret = pybus.call('EnglishAuction.SetupNewAuctionQueryCallback', args);
+		return ret;
 
-	def SetupFindAuctionById(self, strategyMethod: function) -> object:
-		"""		Set up a query method to find auctions by id
+	def SetupFindAuctionByIdQueryCallback(self, strategyMethod: function) -> object:
+		"""		Provide a callback used to retrieve auctions (eg. from a database) by ID
 		Args:
 			strategyMethod (function):
 		Returns:
@@ -248,11 +251,11 @@ class EnglishAuction:
 		operationName = "FindById"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupFindAuctionById', args);
+		ret = pybus.call('EnglishAuction.SetupFindAuctionByIdQueryCallback', args);
 		return ret;
 
-	def SetupFindAuctionStarting(self, strategyMethod: function) -> List[Any]:
-		"""		Set up a query method to find auctions by their start time
+	def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: function) -> List[Any]:
+		"""		Provide a callback used to retrieve auctions (eg. from a database) by their start date/time
 		Args:
 			strategyMethod (function):
 		Returns:
@@ -262,11 +265,11 @@ class EnglishAuction:
 		operationName = "FindStarting"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupFindAuctionStarting', args);
+		ret = pybus.call('EnglishAuction.SetupFindAuctionsStartingQueryCallback', args);
 		return ret;
 
-	def SetupFindAuctionEnd(self, strategyMethod: function) -> List[Any]:
-		"""		Set up a query method to find auctions by their end time
+	def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: function) -> List[Any]:
+		"""		Provide a callback used to retrieve auctions (eg. from a database) by their end data/time
 		Args:
 			strategyMethod (function):
 		Returns:
@@ -276,7 +279,63 @@ class EnglishAuction:
 		operationName = "FindEnding"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupFindAuctionEnd', args);
+		ret = pybus.call('EnglishAuction.SetupFindAuctionsEndingQueryCallback', args);
+		return ret;
+
+	def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: function) -> List[Any]:
+		"""		Provide a callback used to retrieve open auctions (eg. from a database)
+		Args:
+			strategyMethod (function):
+		Returns:
+			A list of auctions
+		"""
+		recordType = "EnglishAuction.Auction"
+		operationName = "FindOpen"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		ret = pybus.call('EnglishAuction.SetupFindOpenAuctionsQueryCallback', args);
+		return ret;
+
+	def SetupCountBidsQueryCallback(self, strategyMethod: function) -> float:
+		"""		Provide a callback used to count the number of bids for an auction (eg. in a database)
+		Args:
+			strategyMethod (function):
+		Returns:
+			Number of bids
+		"""
+		recordType = "EnglishAuction.Bid"
+		operationName = "CountForAuction"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		ret = pybus.call('EnglishAuction.SetupCountBidsQueryCallback', args);
+		return ret;
+
+	def SetupHighestBidsQueryCallback(self, strategyMethod: function) -> float:
+		"""		Provide a callback used to retrieve (eg. from a database) the highest bids for an auction
+		Args:
+			strategyMethod (function):
+		Returns:
+			A list of highest bids
+		"""
+		recordType = "EnglishAuction.Bid"
+		operationName = "FindByHighestPriceForAuction"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		ret = pybus.call('EnglishAuction.SetupHighestBidsQueryCallback', args);
+		return ret;
+
+	def SetupNewBidQueryCallback(self, strategyMethod: function) -> str:
+		"""		Provide a callback used to store new bids (eg. in a database) and return the ID of the new bid.
+		Args:
+			strategyMethod (function):
+		Returns:
+			New bid id
+		"""
+		recordType = "EnglishAuction.Bid"
+		operationName = "New"
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [recordType, operationName, strategyMethod]
+		ret = pybus.call('EnglishAuction.SetupNewBidQueryCallback', args);
 		return ret;
 
 

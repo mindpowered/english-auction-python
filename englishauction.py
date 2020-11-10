@@ -2340,12 +2340,7 @@ class englishauction_EnglishAuction:
             myarr = maglev_MagLevArray.create()
             myarr.push(obj)
             myargs.push(obj)
-            _gthis.maglev.call("Persistence.Mutate",myargs)
-            myargs2 = maglev_MagLevArray.create()
-            myargs2.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
-            myargs2.push(maglev_MagLevString.fromString("NewAuctionId"))
-            myargs2.push(maglev_MagLevArray.create())
-            res = _gthis.maglev.call("Persistence.Get",myargs2)
+            res = _gthis.maglev.call("Persistence.Mutate",myargs)
             return res
         self.maglev.register("EnglishAuction.Create",maglev_MagLevFunction.fromFunction(_hx_local_0))
         def _hx_local_7(args):
