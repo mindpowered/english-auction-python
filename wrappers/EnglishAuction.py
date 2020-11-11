@@ -237,7 +237,7 @@ class EnglishAuction:
 		operationName = "CreateNew"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupNewAuctionQueryCallback', args);
+		ret = pybus.call('Persistence.AddMutator', args);
 		return ret;
 
 	def SetupFindAuctionByIdQueryCallback(self, strategyMethod: function) -> object:
@@ -251,7 +251,7 @@ class EnglishAuction:
 		operationName = "FindById"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupFindAuctionByIdQueryCallback', args);
+		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
 	def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: function) -> List[Any]:
@@ -265,7 +265,7 @@ class EnglishAuction:
 		operationName = "FindStarting"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupFindAuctionsStartingQueryCallback', args);
+		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
 	def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: function) -> List[Any]:
@@ -279,7 +279,7 @@ class EnglishAuction:
 		operationName = "FindEnding"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupFindAuctionsEndingQueryCallback', args);
+		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
 	def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: function) -> List[Any]:
@@ -293,7 +293,7 @@ class EnglishAuction:
 		operationName = "FindOpen"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupFindOpenAuctionsQueryCallback', args);
+		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
 	def SetupCountBidsQueryCallback(self, strategyMethod: function) -> float:
@@ -307,7 +307,7 @@ class EnglishAuction:
 		operationName = "CountForAuction"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupCountBidsQueryCallback', args);
+		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
 	def SetupHighestBidsQueryCallback(self, strategyMethod: function) -> float:
@@ -321,7 +321,7 @@ class EnglishAuction:
 		operationName = "FindByHighestPriceForAuction"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupHighestBidsQueryCallback', args);
+		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
 	def SetupNewBidQueryCallback(self, strategyMethod: function) -> str:
@@ -335,7 +335,7 @@ class EnglishAuction:
 		operationName = "New"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('EnglishAuction.SetupNewBidQueryCallback', args);
+		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
 

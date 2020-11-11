@@ -2218,7 +2218,9 @@ class englishauction_BidRepository:
         pargs = maglev_MagLevArray.create()
         pargs.push(maglev_MagLevString.fromString("EnglishAuction.Bid"))
         pargs.push(maglev_MagLevString.fromString("CountForAuction"))
-        pargs.push(maglev_MagLevString.fromString(auctionId))
+        parr = maglev_MagLevArray.create()
+        parr.push(maglev_MagLevString.fromString(auctionId))
+        pargs.push(parr)
         ret = self.bus.call("Persistence.Get",pargs)
         count = 0
         if (not ret.isError()):
@@ -2339,7 +2341,7 @@ class englishauction_EnglishAuction:
             myargs.push(maglev_MagLevString.fromString("CreateNew"))
             myarr = maglev_MagLevArray.create()
             myarr.push(obj)
-            myargs.push(obj)
+            myargs.push(myarr)
             res = _gthis.maglev.call("Persistence.Mutate",myargs)
             return res
         self.maglev.register("EnglishAuction.Create",maglev_MagLevFunction.fromFunction(_hx_local_0))
@@ -2355,7 +2357,9 @@ class englishauction_EnglishAuction:
             myargs = maglev_MagLevArray.create()
             myargs.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
             myargs.push(maglev_MagLevString.fromString("FindById"))
-            myargs.push(id)
+            myarr = maglev_MagLevArray.create()
+            myarr.push(id)
+            myargs.push(myarr)
             res = bus.call("Persistence.Get",myargs)
             if res.isError():
                 return res
@@ -2399,7 +2403,9 @@ class englishauction_EnglishAuction:
             myargs = maglev_MagLevArray.create()
             myargs.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
             myargs.push(maglev_MagLevString.fromString("FindById"))
-            myargs.push(id)
+            myarr = maglev_MagLevArray.create()
+            myarr.push(id)
+            myargs.push(myarr)
             res = bus.call("Persistence.Get",myargs)
             if res.isError():
                 return res
@@ -2443,7 +2449,9 @@ class englishauction_EnglishAuction:
             myargs = maglev_MagLevArray.create()
             myargs.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
             myargs.push(maglev_MagLevString.fromString("FindById"))
-            myargs.push(id)
+            myarr = maglev_MagLevArray.create()
+            myarr.push(id)
+            myargs.push(myarr)
             res = bus.call("Persistence.Get",myargs)
             if res.isError():
                 return res
@@ -2488,7 +2496,9 @@ class englishauction_EnglishAuction:
             myargs = maglev_MagLevArray.create()
             myargs.push(maglev_MagLevString.fromString("EnglishAuction.Auction"))
             myargs.push(maglev_MagLevString.fromString("FindById"))
-            myargs.push(id)
+            myarr = maglev_MagLevArray.create()
+            myarr.push(id)
+            myargs.push(myarr)
             res = bus.call("Persistence.Get",myargs)
             if res.isError():
                 return res
@@ -2553,7 +2563,9 @@ class englishauction_EnglishAuction:
             args = maglev_MagLevArray.create()
             args.push(maglev_MagLevString.fromString("EnglishAuction.Bid"))
             args.push(maglev_MagLevString.fromString("New"))
-            args.push(data)
+            arr = maglev_MagLevArray.create()
+            arr.push(data)
+            args.push(arr)
             bus.call("Persistence.Mutate",args)
             return maglev_MagLevResult.fromResult(maglev_MagLevBoolean.fromBool(True))
         self.maglev.register("EnglishAuction.Bid",maglev_MagLevFunction.fromFunction(_hx_local_35))
