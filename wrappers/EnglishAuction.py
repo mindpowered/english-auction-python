@@ -2,7 +2,7 @@ import maglev
 import englishauction
 import persistence
 
-from typing import Any, List
+from typing import Any, List, Callable
 
 class EnglishAuction:
 	"""
@@ -226,10 +226,10 @@ class EnglishAuction:
 		ret = pybus.call('EnglishAuction.GetOpenAuctions', args);
 		return ret;
 
-	def SetupNewAuctionQueryCallback(self, strategyMethod: function) -> str:
+	def SetupNewAuctionQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> str:
 		"""		Provide a callback used to store new auctions (eg. in a database) and return the ID of the new auction.
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			new auction id
 		"""
@@ -240,10 +240,10 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddMutator', args);
 		return ret;
 
-	def SetupFindAuctionByIdQueryCallback(self, strategyMethod: function) -> object:
+	def SetupFindAuctionByIdQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> object:
 		"""		Provide a callback used to retrieve auctions (eg. from a database) by ID
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			The auction or null
 		"""
@@ -254,10 +254,10 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
-	def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: function) -> List[Any]:
+	def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> List[Any]:
 		"""		Provide a callback used to retrieve auctions (eg. from a database) by their start date/time
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			A list of auctions
 		"""
@@ -268,10 +268,10 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
-	def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: function) -> List[Any]:
+	def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> List[Any]:
 		"""		Provide a callback used to retrieve auctions (eg. from a database) by their end data/time
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			A list of auctions
 		"""
@@ -282,10 +282,10 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
-	def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: function) -> List[Any]:
+	def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> List[Any]:
 		"""		Provide a callback used to retrieve open auctions (eg. from a database)
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			A list of auctions
 		"""
@@ -296,10 +296,10 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
-	def SetupCountBidsQueryCallback(self, strategyMethod: function) -> float:
+	def SetupCountBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> float:
 		"""		Provide a callback used to count the number of bids for an auction (eg. in a database)
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			Number of bids
 		"""
@@ -310,10 +310,10 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
-	def SetupHighestBidsQueryCallback(self, strategyMethod: function) -> float:
+	def SetupHighestBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> float:
 		"""		Provide a callback used to retrieve (eg. from a database) the highest bids for an auction
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			A list of highest bids
 		"""
@@ -324,10 +324,10 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
-	def SetupNewBidQueryCallback(self, strategyMethod: function) -> str:
+	def SetupNewBidQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> str:
 		"""		Provide a callback used to store new bids (eg. in a database) and return the ID of the new bid.
 		Args:
-			strategyMethod (function):
+			strategyMethod (Callable[[List[Any]], Any])):
 		Returns:
 			New bid id
 		"""
