@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='mindpowered-englishauction',
-    version='0.0.45',
+    version='0.0.46',
     author="Mind Powered Corporation",
     author_email="support@mindpowered.dev",
     license="CPAL-1.0",

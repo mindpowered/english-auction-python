@@ -310,7 +310,7 @@ class EnglishAuction:
 		ret = pybus.call('Persistence.AddGetter', args);
 		return ret;
 
-	def SetupHighestBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> float:
+	def SetupHighestBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any])) -> List[Any]:
 		"""		Provide a callback used to retrieve (eg. from a database) the highest bids for an auction
 		Args:
 			strategyMethod (Callable[[List[Any]], Any])):
