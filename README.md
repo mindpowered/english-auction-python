@@ -24,11 +24,18 @@ pip
 Third-party dependencies may have additional requirements.
 
 # Installation
-pip install ...
+You can retrieve the englishauction package from the Python Package Index https://pypi.org/ using pip. First make sure you have python3 and python3-pip installed. Then you can start by making a `requirements.txt` file in your working directory with the englishauction requirement in it. You can add any other packages to your requirements here, each as a separate line.
+
+requirements.txt:
+```
+mindpowered-englishauction>0
+```
+Now you can use pip to install the englishauction package: `python3 -m pip install -r requirements.txt`
+If you would like to update the package, simply run the above command again.
 
 
 # Configuration
-You must configure the storage and retrieval of auctions and bids.
+You must configure the storage and retrieval of auctions and bids. Before we can make use of englishauction's functions, we have to create Callback functions for englishauction to use whenever it needs to use any persistent data regarding auctions and bids. A common way of storing persistent data is using SQL. Each setup function bridges the gap between your auction data and the englishauction package's functionality.
 
 # Usage
 You are using python
