@@ -15,11 +15,11 @@ class EnglishAuction:
 		lib = englishauction.englishauction_EnglishAuction(bus)
 		persistence.persistence_Persistence(bus)
 
-	def Create(self, start: str, end: str, startingPrice: float, reservePrice: float, priceIncrement: float) -> str:
+	def Create(self, start: float, end: float, startingPrice: float, reservePrice: float, priceIncrement: float) -> str:
 		"""		Create a new auction
 		Args:
-			start (str):start time of auction
-			end (str):end time of auction
+			start (float):start time of auction
+			end (float):end time of auction
 			startingPrice (float):starting price of auction
 			reservePrice (float):reserve price for the auction (0 = none)
 			priceIncrement (float):price increments for bids in the auction
@@ -61,11 +61,23 @@ class EnglishAuction:
 		Args:
 			auctionId (str):auction id
 		Returns:
-			true if auction started, false otherwise
+			true if auction has started, false otherwise
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
 		ret = pybus.call('EnglishAuction.HasStarted', args);
+		return ret;
+
+	def HasEnded(self, auctionId: str) -> bool:
+		"""		Check if an auction has ended yet
+		Args:
+			auctionId (str):auction id
+		Returns:
+			true if auction has ended, false otherwise
+		"""
+		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
+		args = [auctionId]
+		ret = pybus.call('EnglishAuction.HasEnded', args);
 		return ret;
 
 	def Bid(self, auctionId: str, userId: str, price: float):
