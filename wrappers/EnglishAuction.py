@@ -28,8 +28,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [start, end, startingPrice, reservePrice, priceIncrement]
-		ret = pybus.call('EnglishAuction.Create', args);
-		return ret;
+		ret = None
+		def Create_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.Create', args, Create_Ret)
+		return ret
 
 	def GetStart(self, auctionId: str) -> float:
 		"""		Get the start of an auction
@@ -41,8 +44,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.GetStart', args);
-		return ret;
+		ret = None
+		def GetStart_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetStart', args, GetStart_Ret)
+		return ret
 
 	def GetEnd(self, auctionId: str) -> bool:
 		"""		Check if auction has ended
@@ -53,8 +59,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.GetEnd', args);
-		return ret;
+		ret = None
+		def GetEnd_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetEnd', args, GetEnd_Ret)
+		return ret
 
 	def HasStarted(self, auctionId: str) -> bool:
 		"""		Check if an auction has started yet
@@ -65,8 +74,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.HasStarted', args);
-		return ret;
+		ret = None
+		def HasStarted_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.HasStarted', args, HasStarted_Ret)
+		return ret
 
 	def HasEnded(self, auctionId: str) -> bool:
 		"""		Check if an auction has ended yet
@@ -77,8 +89,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.HasEnded', args);
-		return ret;
+		ret = None
+		def HasEnded_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.HasEnded', args, HasEnded_Ret)
+		return ret
 
 	def Bid(self, auctionId: str, userId: str, price: float):
 		"""		Create a bid in an auction
@@ -89,7 +104,10 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId, userId, price]
-		pybus.call('EnglishAuction.Bid', args);
+		ret = None
+		def Bid_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.Bid', args, Bid_Ret)
 
 	def GetHighestBidder(self, auctionId: str) -> Any:
 		"""		Get the highest bidder in an auction
@@ -100,8 +118,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.GetHighestBidder', args);
-		return ret;
+		ret = None
+		def GetHighestBidder_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetHighestBidder', args, GetHighestBidder_Ret)
+		return ret
 
 	def GetHighestBids(self, auctionId: str, numBids: float) -> List[Any]:
 		"""		Get the highest bids in an auction
@@ -113,8 +134,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId, numBids]
-		ret = pybus.call('EnglishAuction.GetHighestBids', args);
-		return ret;
+		ret = None
+		def GetHighestBids_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetHighestBids', args, GetHighestBids_Ret)
+		return ret
 
 	def GetNumberOfBids(self, auctionId: str) -> float:
 		"""		Get the number of bids in an auction
@@ -125,8 +149,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.GetNumberOfBids', args);
-		return ret;
+		ret = None
+		def GetNumberOfBids_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetNumberOfBids', args, GetNumberOfBids_Ret)
+		return ret
 
 	def GetPriceIncrement(self, auctionId: str) -> float:
 		"""		Get the price increment for the specified auction
@@ -137,8 +164,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.GetPriceIncrement', args);
-		return ret;
+		ret = None
+		def GetPriceIncrement_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetPriceIncrement', args, GetPriceIncrement_Ret)
+		return ret
 
 	def GetReservePrice(self, auctionId: str) -> float:
 		"""		Get the reserve price for the specified auction
@@ -149,8 +179,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.GetReservePrice', args);
-		return ret;
+		ret = None
+		def GetReservePrice_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetReservePrice', args, GetReservePrice_Ret)
+		return ret
 
 	def GetStartingPrice(self, auctionId: str) -> float:
 		"""		Get the starting price for the specified auction
@@ -161,8 +194,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.GetStartingPrice', args);
-		return ret;
+		ret = None
+		def GetStartingPrice_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetStartingPrice', args, GetStartingPrice_Ret)
+		return ret
 
 	def CalcTimeRemaining(self, auctionId: str, now: float) -> float:
 		"""		Get the time remaining for the specified auction
@@ -174,8 +210,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId, now]
-		ret = pybus.call('EnglishAuction.CalcTimeRemaining', args);
-		return ret;
+		ret = None
+		def CalcTimeRemaining_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.CalcTimeRemaining', args, CalcTimeRemaining_Ret)
+		return ret
 
 	def CalcMinimumBid(self, auctionId: str) -> float:
 		"""		Get the minimum next bid for the specified auction
@@ -186,8 +225,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [auctionId]
-		ret = pybus.call('EnglishAuction.CalcMinimumBid', args);
-		return ret;
+		ret = None
+		def CalcMinimumBid_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.CalcMinimumBid', args, CalcMinimumBid_Ret)
+		return ret
 
 	def GetAuctionsEnding(self, endfrom: float, endto: float, page: float, perpage: float, sort: str, asc: bool) -> List[Any]:
 		"""		Get a list of auctions based on their end time
@@ -203,8 +245,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [endfrom, endto, page, perpage, sort, asc]
-		ret = pybus.call('EnglishAuction.GetAuctionsEnding', args);
-		return ret;
+		ret = None
+		def GetAuctionsEnding_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetAuctionsEnding', args, GetAuctionsEnding_Ret)
+		return ret
 
 	def GetAuctionsStarting(self, startfrom: float, startto: float, page: float, perpage: float, sort: str, asc: bool) -> List[Any]:
 		"""		Get a list of auctions based on their start time
@@ -220,8 +265,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [startfrom, startto, page, perpage, sort, asc]
-		ret = pybus.call('EnglishAuction.GetAuctionsStarting', args);
-		return ret;
+		ret = None
+		def GetAuctionsStarting_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetAuctionsStarting', args, GetAuctionsStarting_Ret)
+		return ret
 
 	def GetOpenAuctions(self, page: float, perpage: float, sort: str, asc: bool) -> List[Any]:
 		"""		Get a list of currently running auctions
@@ -235,8 +283,11 @@ class EnglishAuction:
 		"""
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [page, perpage, sort, asc]
-		ret = pybus.call('EnglishAuction.GetOpenAuctions', args);
-		return ret;
+		ret = None
+		def GetOpenAuctions_Ret(async_ret):
+			ret = async_ret
+		ret = pybus.call('EnglishAuction.GetOpenAuctions', args, GetOpenAuctions_Ret)
+		return ret
 
 	def SetupNewAuctionQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> str:
 		"""		Provide a callback used to store new auctions (eg. in a database) and return the ID of the new auction.
@@ -249,8 +300,11 @@ class EnglishAuction:
 		operationName = "CreateNew"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddMutator', args);
-		return ret;
+		ret = None
+		def SetupNewAuctionQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddMutator', args, SetupNewAuctionQueryCallback_Ret)
+		return ret
 
 	def SetupFindAuctionByIdQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> object:
 		"""		Provide a callback used to retrieve auctions (eg. from a database) by ID
@@ -263,8 +317,11 @@ class EnglishAuction:
 		operationName = "FindById"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddGetter', args);
-		return ret;
+		ret = None
+		def SetupFindAuctionByIdQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddGetter', args, SetupFindAuctionByIdQueryCallback_Ret)
+		return ret
 
 	def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> List[Any]:
 		"""		Provide a callback used to retrieve auctions (eg. from a database) by their start date/time
@@ -277,8 +334,11 @@ class EnglishAuction:
 		operationName = "FindStarting"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddGetter', args);
-		return ret;
+		ret = None
+		def SetupFindAuctionsStartingQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddGetter', args, SetupFindAuctionsStartingQueryCallback_Ret)
+		return ret
 
 	def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> List[Any]:
 		"""		Provide a callback used to retrieve auctions (eg. from a database) by their end data/time
@@ -291,8 +351,11 @@ class EnglishAuction:
 		operationName = "FindEnding"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddGetter', args);
-		return ret;
+		ret = None
+		def SetupFindAuctionsEndingQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddGetter', args, SetupFindAuctionsEndingQueryCallback_Ret)
+		return ret
 
 	def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> List[Any]:
 		"""		Provide a callback used to retrieve open auctions (eg. from a database)
@@ -305,8 +368,11 @@ class EnglishAuction:
 		operationName = "FindOpen"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddGetter', args);
-		return ret;
+		ret = None
+		def SetupFindOpenAuctionsQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddGetter', args, SetupFindOpenAuctionsQueryCallback_Ret)
+		return ret
 
 	def SetupCountBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> float:
 		"""		Provide a callback used to count the number of bids for an auction (eg. in a database)
@@ -319,8 +385,11 @@ class EnglishAuction:
 		operationName = "CountForAuction"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddGetter', args);
-		return ret;
+		ret = None
+		def SetupCountBidsQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddGetter', args, SetupCountBidsQueryCallback_Ret)
+		return ret
 
 	def SetupHighestBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> List[Any]:
 		"""		Provide a callback used to retrieve (eg. from a database) the highest bids for an auction
@@ -333,8 +402,11 @@ class EnglishAuction:
 		operationName = "FindByHighestPriceForAuction"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddGetter', args);
-		return ret;
+		ret = None
+		def SetupHighestBidsQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddGetter', args, SetupHighestBidsQueryCallback_Ret)
+		return ret
 
 	def SetupNewBidQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -> str:
 		"""		Provide a callback used to store new bids (eg. in a database) and return the ID of the new bid.
@@ -347,8 +419,11 @@ class EnglishAuction:
 		operationName = "New"
 		pybus = maglev.maglev_MagLevPy.getInstance("englishauction")
 		args = [recordType, operationName, strategyMethod]
-		ret = pybus.call('Persistence.AddGetter', args);
-		return ret;
+		ret = None
+		def SetupNewBidQueryCallback_Ret(async_ret):
+			ret = async_ret
+		pybus.call('Persistence.AddGetter', args, SetupNewBidQueryCallback_Ret)
+		return ret
 
 
 
