@@ -1,0 +1,1736 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>wrappers.EnglishAuction API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>wrappers.EnglishAuction</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import maglev
+import englishauction
+import persistence
+
+from typing import Any, List, Callable
+
+class EnglishAuction:
+        &#34;&#34;&#34;
+        An Auction Library
+        Timed auction starting at a low price and increasing until no more bids are made.
+        Also supports reserve price and automatic bidding.
+        &#34;&#34;&#34;
+        def __init__(self):
+                bus = maglev.maglev_MagLev.getInstance(&#34;englishauction&#34;)
+                lib = englishauction.englishauction_EnglishAuction(bus)
+                persistence.persistence_Persistence(bus)
+
+        def Create(self, start: float, end: float, startingPrice: float, reservePrice: float, priceIncrement: float) -&gt; str:
+                &#34;&#34;&#34;             Create a new auction
+                Args:
+                        start (float):start time of auction
+                        end (float):end time of auction
+                        startingPrice (float):starting price of auction
+                        reservePrice (float):reserve price for the auction (0 = none)
+                        priceIncrement (float):price increments for bids in the auction
+                Returns:
+                        auctionId
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [start, end, startingPrice, reservePrice, priceIncrement]
+                ret = None
+                def Create_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.Create&#39;, args, Create_Ret)
+                return ret
+
+        def GetStart(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the start of an auction
+                Will return a timestamp in milliseconds
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        start of auction
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetStart_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetStart&#39;, args, GetStart_Ret)
+                return ret
+
+        def GetEnd(self, auctionId: str) -&gt; bool:
+                &#34;&#34;&#34;             Check if auction has ended
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        true if auction has ended, false otherwise
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetEnd_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetEnd&#39;, args, GetEnd_Ret)
+                return ret
+
+        def HasStarted(self, auctionId: str) -&gt; bool:
+                &#34;&#34;&#34;             Check if an auction has started yet
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        true if auction has started, false otherwise
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def HasStarted_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.HasStarted&#39;, args, HasStarted_Ret)
+                return ret
+
+        def HasEnded(self, auctionId: str) -&gt; bool:
+                &#34;&#34;&#34;             Check if an auction has ended yet
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        true if auction has ended, false otherwise
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def HasEnded_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.HasEnded&#39;, args, HasEnded_Ret)
+                return ret
+
+        def Bid(self, auctionId: str, userId: str, price: float):
+                &#34;&#34;&#34;             Create a bid in an auction
+                Args:
+                        auctionId (str):auction id
+                        userId (str):user id
+                        price (float):price bud
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId, userId, price]
+                ret = None
+                def Bid_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.Bid&#39;, args, Bid_Ret)
+
+        def GetHighestBidder(self, auctionId: str) -&gt; Any:
+                &#34;&#34;&#34;             Get the highest bidder in an auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetHighestBidder_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetHighestBidder&#39;, args, GetHighestBidder_Ret)
+                return ret
+
+        def GetHighestBids(self, auctionId: str, numBids: float) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get the highest bids in an auction
+                Args:
+                        auctionId (str):auction id
+                        numBids (float):max number of highest bids to return
+                Returns:
+                        Highest bids for the specified auction
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId, numBids]
+                ret = None
+                def GetHighestBids_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetHighestBids&#39;, args, GetHighestBids_Ret)
+                return ret
+
+        def GetNumberOfBids(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the number of bids in an auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Number of bids placed in the specified auction
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetNumberOfBids_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetNumberOfBids&#39;, args, GetNumberOfBids_Ret)
+                return ret
+
+        def GetPriceIncrement(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the price increment for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Price increment
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetPriceIncrement_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetPriceIncrement&#39;, args, GetPriceIncrement_Ret)
+                return ret
+
+        def GetReservePrice(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the reserve price for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Reserve price
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetReservePrice_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetReservePrice&#39;, args, GetReservePrice_Ret)
+                return ret
+
+        def GetStartingPrice(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the starting price for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Starting price
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetStartingPrice_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetStartingPrice&#39;, args, GetStartingPrice_Ret)
+                return ret
+
+        def CalcTimeRemaining(self, auctionId: str, now: float) -&gt; float:
+                &#34;&#34;&#34;             Get the time remaining for the specified auction
+                Args:
+                        auctionId (str):auction id
+                        now (float):current unix timestamp
+                Returns:
+                        Time remaining in seconds
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId, now]
+                ret = None
+                def CalcTimeRemaining_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.CalcTimeRemaining&#39;, args, CalcTimeRemaining_Ret)
+                return ret
+
+        def CalcMinimumBid(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the minimum next bid for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Minimum bid price
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def CalcMinimumBid_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.CalcMinimumBid&#39;, args, CalcMinimumBid_Ret)
+                return ret
+
+        def GetAuctionsEnding(self, endfrom: float, endto: float, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get a list of auctions based on their end time
+                Args:
+                        endfrom (float):end from
+                        endto (float):end to
+                        page (float):
+                        perpage (float):number of auctions per page
+                        sort (str):field to sort by
+                        asc (bool):ascending (true) or descending (false)
+                Returns:
+                        List of auctions ending in the specified period
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [endfrom, endto, page, perpage, sort, asc]
+                ret = None
+                def GetAuctionsEnding_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetAuctionsEnding&#39;, args, GetAuctionsEnding_Ret)
+                return ret
+
+        def GetAuctionsStarting(self, startfrom: float, startto: float, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get a list of auctions based on their start time
+                Args:
+                        startfrom (float):start from
+                        startto (float):start to
+                        page (float):
+                        perpage (float):number of auctions per page
+                        sort (str):field to sort by
+                        asc (bool):ascending (true) or descending (false)
+                Returns:
+                        List of auctions starting in the specified period
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [startfrom, startto, page, perpage, sort, asc]
+                ret = None
+                def GetAuctionsStarting_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetAuctionsStarting&#39;, args, GetAuctionsStarting_Ret)
+                return ret
+
+        def GetOpenAuctions(self, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get a list of currently running auctions
+                Args:
+                        page (float):
+                        perpage (float):number of auctions per page
+                        sort (str):field to sort by
+                        asc (bool):ascending (true) or descending (false)
+                Returns:
+                        List of open auctions
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [page, perpage, sort, asc]
+                ret = None
+                def GetOpenAuctions_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetOpenAuctions&#39;, args, GetOpenAuctions_Ret)
+                return ret
+
+        def SetupNewAuctionQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; str:
+                &#34;&#34;&#34;             Provide a callback used to store new auctions (eg. in a database) and return the ID of the new auction.
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        new auction id
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;CreateNew&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupNewAuctionQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddMutator&#39;, args, SetupNewAuctionQueryCallback_Ret)
+                return ret
+
+        def SetupFindAuctionByIdQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; object:
+                &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by ID
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        The auction or null
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindById&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindAuctionByIdQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionByIdQueryCallback_Ret)
+                return ret
+
+        def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by their start date/time
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of auctions
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindStarting&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindAuctionsStartingQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionsStartingQueryCallback_Ret)
+                return ret
+
+        def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by their end data/time
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of auctions
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindEnding&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindAuctionsEndingQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionsEndingQueryCallback_Ret)
+                return ret
+
+        def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve open auctions (eg. from a database)
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of auctions
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindOpen&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindOpenAuctionsQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindOpenAuctionsQueryCallback_Ret)
+                return ret
+
+        def SetupCountBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; float:
+                &#34;&#34;&#34;             Provide a callback used to count the number of bids for an auction (eg. in a database)
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        Number of bids
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Bid&#34;
+                operationName = &#34;CountForAuction&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupCountBidsQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupCountBidsQueryCallback_Ret)
+                return ret
+
+        def SetupHighestBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve (eg. from a database) the highest bids for an auction
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of highest bids
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Bid&#34;
+                operationName = &#34;FindByHighestPriceForAuction&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupHighestBidsQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupHighestBidsQueryCallback_Ret)
+                return ret
+
+        def SetupNewBidQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; str:
+                &#34;&#34;&#34;             Provide a callback used to store new bids (eg. in a database) and return the ID of the new bid.
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        New bid id
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Bid&#34;
+                operationName = &#34;New&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupNewBidQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupNewBidQueryCallback_Ret)
+                return ret</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="wrappers.EnglishAuction.EnglishAuction"><code class="flex name class">
+<span>class <span class="ident">EnglishAuction</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>An Auction Library
+Timed auction starting at a low price and increasing until no more bids are made.
+Also supports reserve price and automatic bidding.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EnglishAuction:
+        &#34;&#34;&#34;
+        An Auction Library
+        Timed auction starting at a low price and increasing until no more bids are made.
+        Also supports reserve price and automatic bidding.
+        &#34;&#34;&#34;
+        def __init__(self):
+                bus = maglev.maglev_MagLev.getInstance(&#34;englishauction&#34;)
+                lib = englishauction.englishauction_EnglishAuction(bus)
+                persistence.persistence_Persistence(bus)
+
+        def Create(self, start: float, end: float, startingPrice: float, reservePrice: float, priceIncrement: float) -&gt; str:
+                &#34;&#34;&#34;             Create a new auction
+                Args:
+                        start (float):start time of auction
+                        end (float):end time of auction
+                        startingPrice (float):starting price of auction
+                        reservePrice (float):reserve price for the auction (0 = none)
+                        priceIncrement (float):price increments for bids in the auction
+                Returns:
+                        auctionId
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [start, end, startingPrice, reservePrice, priceIncrement]
+                ret = None
+                def Create_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.Create&#39;, args, Create_Ret)
+                return ret
+
+        def GetStart(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the start of an auction
+                Will return a timestamp in milliseconds
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        start of auction
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetStart_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetStart&#39;, args, GetStart_Ret)
+                return ret
+
+        def GetEnd(self, auctionId: str) -&gt; bool:
+                &#34;&#34;&#34;             Check if auction has ended
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        true if auction has ended, false otherwise
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetEnd_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetEnd&#39;, args, GetEnd_Ret)
+                return ret
+
+        def HasStarted(self, auctionId: str) -&gt; bool:
+                &#34;&#34;&#34;             Check if an auction has started yet
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        true if auction has started, false otherwise
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def HasStarted_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.HasStarted&#39;, args, HasStarted_Ret)
+                return ret
+
+        def HasEnded(self, auctionId: str) -&gt; bool:
+                &#34;&#34;&#34;             Check if an auction has ended yet
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        true if auction has ended, false otherwise
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def HasEnded_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.HasEnded&#39;, args, HasEnded_Ret)
+                return ret
+
+        def Bid(self, auctionId: str, userId: str, price: float):
+                &#34;&#34;&#34;             Create a bid in an auction
+                Args:
+                        auctionId (str):auction id
+                        userId (str):user id
+                        price (float):price bud
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId, userId, price]
+                ret = None
+                def Bid_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.Bid&#39;, args, Bid_Ret)
+
+        def GetHighestBidder(self, auctionId: str) -&gt; Any:
+                &#34;&#34;&#34;             Get the highest bidder in an auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetHighestBidder_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetHighestBidder&#39;, args, GetHighestBidder_Ret)
+                return ret
+
+        def GetHighestBids(self, auctionId: str, numBids: float) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get the highest bids in an auction
+                Args:
+                        auctionId (str):auction id
+                        numBids (float):max number of highest bids to return
+                Returns:
+                        Highest bids for the specified auction
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId, numBids]
+                ret = None
+                def GetHighestBids_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetHighestBids&#39;, args, GetHighestBids_Ret)
+                return ret
+
+        def GetNumberOfBids(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the number of bids in an auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Number of bids placed in the specified auction
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetNumberOfBids_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetNumberOfBids&#39;, args, GetNumberOfBids_Ret)
+                return ret
+
+        def GetPriceIncrement(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the price increment for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Price increment
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetPriceIncrement_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetPriceIncrement&#39;, args, GetPriceIncrement_Ret)
+                return ret
+
+        def GetReservePrice(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the reserve price for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Reserve price
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetReservePrice_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetReservePrice&#39;, args, GetReservePrice_Ret)
+                return ret
+
+        def GetStartingPrice(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the starting price for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Starting price
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def GetStartingPrice_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetStartingPrice&#39;, args, GetStartingPrice_Ret)
+                return ret
+
+        def CalcTimeRemaining(self, auctionId: str, now: float) -&gt; float:
+                &#34;&#34;&#34;             Get the time remaining for the specified auction
+                Args:
+                        auctionId (str):auction id
+                        now (float):current unix timestamp
+                Returns:
+                        Time remaining in seconds
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId, now]
+                ret = None
+                def CalcTimeRemaining_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.CalcTimeRemaining&#39;, args, CalcTimeRemaining_Ret)
+                return ret
+
+        def CalcMinimumBid(self, auctionId: str) -&gt; float:
+                &#34;&#34;&#34;             Get the minimum next bid for the specified auction
+                Args:
+                        auctionId (str):auction id
+                Returns:
+                        Minimum bid price
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [auctionId]
+                ret = None
+                def CalcMinimumBid_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.CalcMinimumBid&#39;, args, CalcMinimumBid_Ret)
+                return ret
+
+        def GetAuctionsEnding(self, endfrom: float, endto: float, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get a list of auctions based on their end time
+                Args:
+                        endfrom (float):end from
+                        endto (float):end to
+                        page (float):
+                        perpage (float):number of auctions per page
+                        sort (str):field to sort by
+                        asc (bool):ascending (true) or descending (false)
+                Returns:
+                        List of auctions ending in the specified period
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [endfrom, endto, page, perpage, sort, asc]
+                ret = None
+                def GetAuctionsEnding_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetAuctionsEnding&#39;, args, GetAuctionsEnding_Ret)
+                return ret
+
+        def GetAuctionsStarting(self, startfrom: float, startto: float, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get a list of auctions based on their start time
+                Args:
+                        startfrom (float):start from
+                        startto (float):start to
+                        page (float):
+                        perpage (float):number of auctions per page
+                        sort (str):field to sort by
+                        asc (bool):ascending (true) or descending (false)
+                Returns:
+                        List of auctions starting in the specified period
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [startfrom, startto, page, perpage, sort, asc]
+                ret = None
+                def GetAuctionsStarting_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetAuctionsStarting&#39;, args, GetAuctionsStarting_Ret)
+                return ret
+
+        def GetOpenAuctions(self, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+                &#34;&#34;&#34;             Get a list of currently running auctions
+                Args:
+                        page (float):
+                        perpage (float):number of auctions per page
+                        sort (str):field to sort by
+                        asc (bool):ascending (true) or descending (false)
+                Returns:
+                        List of open auctions
+                &#34;&#34;&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [page, perpage, sort, asc]
+                ret = None
+                def GetOpenAuctions_Ret(async_ret):
+                        ret = async_ret
+                ret = pybus.call(&#39;EnglishAuction.GetOpenAuctions&#39;, args, GetOpenAuctions_Ret)
+                return ret
+
+        def SetupNewAuctionQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; str:
+                &#34;&#34;&#34;             Provide a callback used to store new auctions (eg. in a database) and return the ID of the new auction.
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        new auction id
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;CreateNew&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupNewAuctionQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddMutator&#39;, args, SetupNewAuctionQueryCallback_Ret)
+                return ret
+
+        def SetupFindAuctionByIdQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; object:
+                &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by ID
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        The auction or null
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindById&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindAuctionByIdQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionByIdQueryCallback_Ret)
+                return ret
+
+        def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by their start date/time
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of auctions
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindStarting&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindAuctionsStartingQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionsStartingQueryCallback_Ret)
+                return ret
+
+        def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by their end data/time
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of auctions
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindEnding&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindAuctionsEndingQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionsEndingQueryCallback_Ret)
+                return ret
+
+        def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve open auctions (eg. from a database)
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of auctions
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Auction&#34;
+                operationName = &#34;FindOpen&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupFindOpenAuctionsQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindOpenAuctionsQueryCallback_Ret)
+                return ret
+
+        def SetupCountBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; float:
+                &#34;&#34;&#34;             Provide a callback used to count the number of bids for an auction (eg. in a database)
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        Number of bids
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Bid&#34;
+                operationName = &#34;CountForAuction&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupCountBidsQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupCountBidsQueryCallback_Ret)
+                return ret
+
+        def SetupHighestBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+                &#34;&#34;&#34;             Provide a callback used to retrieve (eg. from a database) the highest bids for an auction
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        A list of highest bids
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Bid&#34;
+                operationName = &#34;FindByHighestPriceForAuction&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupHighestBidsQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupHighestBidsQueryCallback_Ret)
+                return ret
+
+        def SetupNewBidQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; str:
+                &#34;&#34;&#34;             Provide a callback used to store new bids (eg. in a database) and return the ID of the new bid.
+                Args:
+                        strategyMethod (Callable[[List[Any]], Any]):
+                Returns:
+                        New bid id
+                &#34;&#34;&#34;
+                recordType = &#34;EnglishAuction.Bid&#34;
+                operationName = &#34;New&#34;
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                args = [recordType, operationName, strategyMethod]
+                ret = None
+                def SetupNewBidQueryCallback_Ret(async_ret):
+                        ret = async_ret
+                pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupNewBidQueryCallback_Ret)
+                return ret</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="wrappers.EnglishAuction.EnglishAuction.Bid"><code class="name flex">
+<span>def <span class="ident">Bid</span></span>(<span>self, auctionId: str, userId: str, price: float)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a bid in an auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id
+userId (str):user id
+price (float):price bud</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def Bid(self, auctionId: str, userId: str, price: float):
+        &#34;&#34;&#34;             Create a bid in an auction
+        Args:
+                auctionId (str):auction id
+                userId (str):user id
+                price (float):price bud
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId, userId, price]
+        ret = None
+        def Bid_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.Bid&#39;, args, Bid_Ret)</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.CalcMinimumBid"><code class="name flex">
+<span>def <span class="ident">CalcMinimumBid</span></span>(<span>self, auctionId: str) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the minimum next bid for the specified auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>Minimum bid price</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def CalcMinimumBid(self, auctionId: str) -&gt; float:
+        &#34;&#34;&#34;             Get the minimum next bid for the specified auction
+        Args:
+                auctionId (str):auction id
+        Returns:
+                Minimum bid price
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def CalcMinimumBid_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.CalcMinimumBid&#39;, args, CalcMinimumBid_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.CalcTimeRemaining"><code class="name flex">
+<span>def <span class="ident">CalcTimeRemaining</span></span>(<span>self, auctionId: str, now: float) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the time remaining for the specified auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id
+now (float):current unix timestamp</p>
+<h2 id="returns">Returns</h2>
+<p>Time remaining in seconds</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def CalcTimeRemaining(self, auctionId: str, now: float) -&gt; float:
+        &#34;&#34;&#34;             Get the time remaining for the specified auction
+        Args:
+                auctionId (str):auction id
+                now (float):current unix timestamp
+        Returns:
+                Time remaining in seconds
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId, now]
+        ret = None
+        def CalcTimeRemaining_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.CalcTimeRemaining&#39;, args, CalcTimeRemaining_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.Create"><code class="name flex">
+<span>def <span class="ident">Create</span></span>(<span>self, start: float, end: float, startingPrice: float, reservePrice: float, priceIncrement: float) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a new auction</p>
+<h2 id="args">Args</h2>
+<p>start (float):start time of auction
+end (float):end time of auction
+startingPrice (float):starting price of auction
+reservePrice (float):reserve price for the auction (0 = none)
+priceIncrement (float):price increments for bids in the auction</p>
+<h2 id="returns">Returns</h2>
+<p>auctionId</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def Create(self, start: float, end: float, startingPrice: float, reservePrice: float, priceIncrement: float) -&gt; str:
+        &#34;&#34;&#34;             Create a new auction
+        Args:
+                start (float):start time of auction
+                end (float):end time of auction
+                startingPrice (float):starting price of auction
+                reservePrice (float):reserve price for the auction (0 = none)
+                priceIncrement (float):price increments for bids in the auction
+        Returns:
+                auctionId
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [start, end, startingPrice, reservePrice, priceIncrement]
+        ret = None
+        def Create_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.Create&#39;, args, Create_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetAuctionsEnding"><code class="name flex">
+<span>def <span class="ident">GetAuctionsEnding</span></span>(<span>self, endfrom: float, endto: float, page: float, perpage: float, sort: str, asc: bool) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get a list of auctions based on their end time</p>
+<h2 id="args">Args</h2>
+<p>endfrom (float):end from
+endto (float):end to
+page (float):
+perpage (float):number of auctions per page
+sort (str):field to sort by
+asc (bool):ascending (true) or descending (false)</p>
+<h2 id="returns">Returns</h2>
+<p>List of auctions ending in the specified period</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetAuctionsEnding(self, endfrom: float, endto: float, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+        &#34;&#34;&#34;             Get a list of auctions based on their end time
+        Args:
+                endfrom (float):end from
+                endto (float):end to
+                page (float):
+                perpage (float):number of auctions per page
+                sort (str):field to sort by
+                asc (bool):ascending (true) or descending (false)
+        Returns:
+                List of auctions ending in the specified period
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [endfrom, endto, page, perpage, sort, asc]
+        ret = None
+        def GetAuctionsEnding_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetAuctionsEnding&#39;, args, GetAuctionsEnding_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetAuctionsStarting"><code class="name flex">
+<span>def <span class="ident">GetAuctionsStarting</span></span>(<span>self, startfrom: float, startto: float, page: float, perpage: float, sort: str, asc: bool) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get a list of auctions based on their start time</p>
+<h2 id="args">Args</h2>
+<p>startfrom (float):start from
+startto (float):start to
+page (float):
+perpage (float):number of auctions per page
+sort (str):field to sort by
+asc (bool):ascending (true) or descending (false)</p>
+<h2 id="returns">Returns</h2>
+<p>List of auctions starting in the specified period</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetAuctionsStarting(self, startfrom: float, startto: float, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+        &#34;&#34;&#34;             Get a list of auctions based on their start time
+        Args:
+                startfrom (float):start from
+                startto (float):start to
+                page (float):
+                perpage (float):number of auctions per page
+                sort (str):field to sort by
+                asc (bool):ascending (true) or descending (false)
+        Returns:
+                List of auctions starting in the specified period
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [startfrom, startto, page, perpage, sort, asc]
+        ret = None
+        def GetAuctionsStarting_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetAuctionsStarting&#39;, args, GetAuctionsStarting_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetEnd"><code class="name flex">
+<span>def <span class="ident">GetEnd</span></span>(<span>self, auctionId: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if auction has ended</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>true if auction has ended, false otherwise</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetEnd(self, auctionId: str) -&gt; bool:
+        &#34;&#34;&#34;             Check if auction has ended
+        Args:
+                auctionId (str):auction id
+        Returns:
+                true if auction has ended, false otherwise
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def GetEnd_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetEnd&#39;, args, GetEnd_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetHighestBidder"><code class="name flex">
+<span>def <span class="ident">GetHighestBidder</span></span>(<span>self, auctionId: str) ‑> Any</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the highest bidder in an auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id
+Returns:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetHighestBidder(self, auctionId: str) -&gt; Any:
+        &#34;&#34;&#34;             Get the highest bidder in an auction
+        Args:
+                auctionId (str):auction id
+        Returns:
+                
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def GetHighestBidder_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetHighestBidder&#39;, args, GetHighestBidder_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetHighestBids"><code class="name flex">
+<span>def <span class="ident">GetHighestBids</span></span>(<span>self, auctionId: str, numBids: float) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the highest bids in an auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id
+numBids (float):max number of highest bids to return</p>
+<h2 id="returns">Returns</h2>
+<p>Highest bids for the specified auction</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetHighestBids(self, auctionId: str, numBids: float) -&gt; List[Any]:
+        &#34;&#34;&#34;             Get the highest bids in an auction
+        Args:
+                auctionId (str):auction id
+                numBids (float):max number of highest bids to return
+        Returns:
+                Highest bids for the specified auction
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId, numBids]
+        ret = None
+        def GetHighestBids_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetHighestBids&#39;, args, GetHighestBids_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetNumberOfBids"><code class="name flex">
+<span>def <span class="ident">GetNumberOfBids</span></span>(<span>self, auctionId: str) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the number of bids in an auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>Number of bids placed in the specified auction</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetNumberOfBids(self, auctionId: str) -&gt; float:
+        &#34;&#34;&#34;             Get the number of bids in an auction
+        Args:
+                auctionId (str):auction id
+        Returns:
+                Number of bids placed in the specified auction
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def GetNumberOfBids_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetNumberOfBids&#39;, args, GetNumberOfBids_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetOpenAuctions"><code class="name flex">
+<span>def <span class="ident">GetOpenAuctions</span></span>(<span>self, page: float, perpage: float, sort: str, asc: bool) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get a list of currently running auctions</p>
+<h2 id="args">Args</h2>
+<p>page (float):
+perpage (float):number of auctions per page
+sort (str):field to sort by
+asc (bool):ascending (true) or descending (false)</p>
+<h2 id="returns">Returns</h2>
+<p>List of open auctions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetOpenAuctions(self, page: float, perpage: float, sort: str, asc: bool) -&gt; List[Any]:
+        &#34;&#34;&#34;             Get a list of currently running auctions
+        Args:
+                page (float):
+                perpage (float):number of auctions per page
+                sort (str):field to sort by
+                asc (bool):ascending (true) or descending (false)
+        Returns:
+                List of open auctions
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [page, perpage, sort, asc]
+        ret = None
+        def GetOpenAuctions_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetOpenAuctions&#39;, args, GetOpenAuctions_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetPriceIncrement"><code class="name flex">
+<span>def <span class="ident">GetPriceIncrement</span></span>(<span>self, auctionId: str) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the price increment for the specified auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>Price increment</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetPriceIncrement(self, auctionId: str) -&gt; float:
+        &#34;&#34;&#34;             Get the price increment for the specified auction
+        Args:
+                auctionId (str):auction id
+        Returns:
+                Price increment
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def GetPriceIncrement_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetPriceIncrement&#39;, args, GetPriceIncrement_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetReservePrice"><code class="name flex">
+<span>def <span class="ident">GetReservePrice</span></span>(<span>self, auctionId: str) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the reserve price for the specified auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>Reserve price</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetReservePrice(self, auctionId: str) -&gt; float:
+        &#34;&#34;&#34;             Get the reserve price for the specified auction
+        Args:
+                auctionId (str):auction id
+        Returns:
+                Reserve price
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def GetReservePrice_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetReservePrice&#39;, args, GetReservePrice_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetStart"><code class="name flex">
+<span>def <span class="ident">GetStart</span></span>(<span>self, auctionId: str) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the start of an auction
+Will return a timestamp in milliseconds</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>start of auction</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetStart(self, auctionId: str) -&gt; float:
+        &#34;&#34;&#34;             Get the start of an auction
+        Will return a timestamp in milliseconds
+        Args:
+                auctionId (str):auction id
+        Returns:
+                start of auction
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def GetStart_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetStart&#39;, args, GetStart_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.GetStartingPrice"><code class="name flex">
+<span>def <span class="ident">GetStartingPrice</span></span>(<span>self, auctionId: str) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the starting price for the specified auction</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>Starting price</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def GetStartingPrice(self, auctionId: str) -&gt; float:
+        &#34;&#34;&#34;             Get the starting price for the specified auction
+        Args:
+                auctionId (str):auction id
+        Returns:
+                Starting price
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def GetStartingPrice_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.GetStartingPrice&#39;, args, GetStartingPrice_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.HasEnded"><code class="name flex">
+<span>def <span class="ident">HasEnded</span></span>(<span>self, auctionId: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if an auction has ended yet</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>true if auction has ended, false otherwise</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def HasEnded(self, auctionId: str) -&gt; bool:
+        &#34;&#34;&#34;             Check if an auction has ended yet
+        Args:
+                auctionId (str):auction id
+        Returns:
+                true if auction has ended, false otherwise
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def HasEnded_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.HasEnded&#39;, args, HasEnded_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.HasStarted"><code class="name flex">
+<span>def <span class="ident">HasStarted</span></span>(<span>self, auctionId: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if an auction has started yet</p>
+<h2 id="args">Args</h2>
+<p>auctionId (str):auction id</p>
+<h2 id="returns">Returns</h2>
+<p>true if auction has started, false otherwise</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def HasStarted(self, auctionId: str) -&gt; bool:
+        &#34;&#34;&#34;             Check if an auction has started yet
+        Args:
+                auctionId (str):auction id
+        Returns:
+                true if auction has started, false otherwise
+        &#34;&#34;&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [auctionId]
+        ret = None
+        def HasStarted_Ret(async_ret):
+                ret = async_ret
+        ret = pybus.call(&#39;EnglishAuction.HasStarted&#39;, args, HasStarted_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupCountBidsQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupCountBidsQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to count the number of bids for an auction (eg. in a database)</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>Number of bids</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupCountBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; float:
+        &#34;&#34;&#34;             Provide a callback used to count the number of bids for an auction (eg. in a database)
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                Number of bids
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Bid&#34;
+        operationName = &#34;CountForAuction&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupCountBidsQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupCountBidsQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionByIdQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupFindAuctionByIdQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> object</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to retrieve auctions (eg. from a database) by ID</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>The auction or null</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupFindAuctionByIdQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; object:
+        &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by ID
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                The auction or null
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Auction&#34;
+        operationName = &#34;FindById&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupFindAuctionByIdQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionByIdQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionsEndingQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupFindAuctionsEndingQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to retrieve auctions (eg. from a database) by their end data/time</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>A list of auctions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupFindAuctionsEndingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+        &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by their end data/time
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                A list of auctions
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Auction&#34;
+        operationName = &#34;FindEnding&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupFindAuctionsEndingQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionsEndingQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionsStartingQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupFindAuctionsStartingQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to retrieve auctions (eg. from a database) by their start date/time</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>A list of auctions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupFindAuctionsStartingQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+        &#34;&#34;&#34;             Provide a callback used to retrieve auctions (eg. from a database) by their start date/time
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                A list of auctions
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Auction&#34;
+        operationName = &#34;FindStarting&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupFindAuctionsStartingQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindAuctionsStartingQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupFindOpenAuctionsQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupFindOpenAuctionsQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to retrieve open auctions (eg. from a database)</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>A list of auctions</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupFindOpenAuctionsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+        &#34;&#34;&#34;             Provide a callback used to retrieve open auctions (eg. from a database)
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                A list of auctions
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Auction&#34;
+        operationName = &#34;FindOpen&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupFindOpenAuctionsQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupFindOpenAuctionsQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupHighestBidsQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupHighestBidsQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to retrieve (eg. from a database) the highest bids for an auction</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>A list of highest bids</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupHighestBidsQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; List[Any]:
+        &#34;&#34;&#34;             Provide a callback used to retrieve (eg. from a database) the highest bids for an auction
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                A list of highest bids
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Bid&#34;
+        operationName = &#34;FindByHighestPriceForAuction&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupHighestBidsQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupHighestBidsQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupNewAuctionQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupNewAuctionQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to store new auctions (eg. in a database) and return the ID of the new auction.</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>new auction id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupNewAuctionQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; str:
+        &#34;&#34;&#34;             Provide a callback used to store new auctions (eg. in a database) and return the ID of the new auction.
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                new auction id
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Auction&#34;
+        operationName = &#34;CreateNew&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupNewAuctionQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddMutator&#39;, args, SetupNewAuctionQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+<dt id="wrappers.EnglishAuction.EnglishAuction.SetupNewBidQueryCallback"><code class="name flex">
+<span>def <span class="ident">SetupNewBidQueryCallback</span></span>(<span>self, strategyMethod: Callable[[List[Any]], Any]) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Provide a callback used to store new bids (eg. in a database) and return the ID of the new bid.</p>
+<h2 id="args">Args</h2>
+<p>strategyMethod (Callable[[List[Any]], Any]):</p>
+<h2 id="returns">Returns</h2>
+<p>New bid id</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SetupNewBidQueryCallback(self, strategyMethod: Callable[[List[Any]], Any]) -&gt; str:
+        &#34;&#34;&#34;             Provide a callback used to store new bids (eg. in a database) and return the ID of the new bid.
+        Args:
+                strategyMethod (Callable[[List[Any]], Any]):
+        Returns:
+                New bid id
+        &#34;&#34;&#34;
+        recordType = &#34;EnglishAuction.Bid&#34;
+        operationName = &#34;New&#34;
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        args = [recordType, operationName, strategyMethod]
+        ret = None
+        def SetupNewBidQueryCallback_Ret(async_ret):
+                ret = async_ret
+        pybus.call(&#39;Persistence.AddGetter&#39;, args, SetupNewBidQueryCallback_Ret)
+        return ret</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="wrappers" href="index.html">wrappers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="wrappers.EnglishAuction.EnglishAuction" href="#wrappers.EnglishAuction.EnglishAuction">EnglishAuction</a></code></h4>
+<ul class="">
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.Bid" href="#wrappers.EnglishAuction.EnglishAuction.Bid">Bid</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.CalcMinimumBid" href="#wrappers.EnglishAuction.EnglishAuction.CalcMinimumBid">CalcMinimumBid</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.CalcTimeRemaining" href="#wrappers.EnglishAuction.EnglishAuction.CalcTimeRemaining">CalcTimeRemaining</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.Create" href="#wrappers.EnglishAuction.EnglishAuction.Create">Create</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetAuctionsEnding" href="#wrappers.EnglishAuction.EnglishAuction.GetAuctionsEnding">GetAuctionsEnding</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetAuctionsStarting" href="#wrappers.EnglishAuction.EnglishAuction.GetAuctionsStarting">GetAuctionsStarting</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetEnd" href="#wrappers.EnglishAuction.EnglishAuction.GetEnd">GetEnd</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetHighestBidder" href="#wrappers.EnglishAuction.EnglishAuction.GetHighestBidder">GetHighestBidder</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetHighestBids" href="#wrappers.EnglishAuction.EnglishAuction.GetHighestBids">GetHighestBids</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetNumberOfBids" href="#wrappers.EnglishAuction.EnglishAuction.GetNumberOfBids">GetNumberOfBids</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetOpenAuctions" href="#wrappers.EnglishAuction.EnglishAuction.GetOpenAuctions">GetOpenAuctions</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetPriceIncrement" href="#wrappers.EnglishAuction.EnglishAuction.GetPriceIncrement">GetPriceIncrement</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetReservePrice" href="#wrappers.EnglishAuction.EnglishAuction.GetReservePrice">GetReservePrice</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetStart" href="#wrappers.EnglishAuction.EnglishAuction.GetStart">GetStart</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.GetStartingPrice" href="#wrappers.EnglishAuction.EnglishAuction.GetStartingPrice">GetStartingPrice</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.HasEnded" href="#wrappers.EnglishAuction.EnglishAuction.HasEnded">HasEnded</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.HasStarted" href="#wrappers.EnglishAuction.EnglishAuction.HasStarted">HasStarted</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupCountBidsQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupCountBidsQueryCallback">SetupCountBidsQueryCallback</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionByIdQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionByIdQueryCallback">SetupFindAuctionByIdQueryCallback</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionsEndingQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionsEndingQueryCallback">SetupFindAuctionsEndingQueryCallback</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionsStartingQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupFindAuctionsStartingQueryCallback">SetupFindAuctionsStartingQueryCallback</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupFindOpenAuctionsQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupFindOpenAuctionsQueryCallback">SetupFindOpenAuctionsQueryCallback</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupHighestBidsQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupHighestBidsQueryCallback">SetupHighestBidsQueryCallback</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupNewAuctionQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupNewAuctionQueryCallback">SetupNewAuctionQueryCallback</a></code></li>
+<li><code><a title="wrappers.EnglishAuction.EnglishAuction.SetupNewBidQueryCallback" href="#wrappers.EnglishAuction.EnglishAuction.SetupNewBidQueryCallback">SetupNewBidQueryCallback</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
