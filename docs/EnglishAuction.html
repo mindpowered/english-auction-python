@@ -38,7 +38,7 @@ class EnglishAuction:
         Also supports reserve price and automatic bidding.
         &#34;&#34;&#34;
         def __init__(self):
-                bus = maglev.maglev_MagLev.getInstance(&#34;englishauction&#34;)
+                bus = maglev.maglev_MagLev.getInstance(&#34;default&#34;)
                 lib = englishauction.englishauction_EnglishAuction(bus)
 
         def Create(self, start: float, end: float, startingPrice: float, reservePrice: float, priceIncrement: float) -&gt; str:
@@ -52,7 +52,7 @@ class EnglishAuction:
                 Returns:
                         auctionId
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [start, end, startingPrice, reservePrice, priceIncrement]
                 ret = None
                 def Create_Ret(async_ret):
@@ -68,7 +68,7 @@ class EnglishAuction:
                 Returns:
                         start of auction
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetStart_Ret(async_ret):
@@ -83,7 +83,7 @@ class EnglishAuction:
                 Returns:
                         true if auction has ended, false otherwise
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetEnd_Ret(async_ret):
@@ -98,7 +98,7 @@ class EnglishAuction:
                 Returns:
                         true if auction has started, false otherwise
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def HasStarted_Ret(async_ret):
@@ -113,7 +113,7 @@ class EnglishAuction:
                 Returns:
                         true if auction has ended, false otherwise
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def HasEnded_Ret(async_ret):
@@ -128,7 +128,7 @@ class EnglishAuction:
                         userId (str):user id
                         price (float):price bud
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId, userId, price]
                 ret = None
                 def Bid_Ret(async_ret):
@@ -142,7 +142,7 @@ class EnglishAuction:
                 Returns:
                         
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetHighestBidder_Ret(async_ret):
@@ -158,7 +158,7 @@ class EnglishAuction:
                 Returns:
                         Highest bids for the specified auction
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId, numBids]
                 ret = None
                 def GetHighestBids_Ret(async_ret):
@@ -173,7 +173,7 @@ class EnglishAuction:
                 Returns:
                         Number of bids placed in the specified auction
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetNumberOfBids_Ret(async_ret):
@@ -188,7 +188,7 @@ class EnglishAuction:
                 Returns:
                         Price increment
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetPriceIncrement_Ret(async_ret):
@@ -203,7 +203,7 @@ class EnglishAuction:
                 Returns:
                         Reserve price
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetReservePrice_Ret(async_ret):
@@ -218,7 +218,7 @@ class EnglishAuction:
                 Returns:
                         Starting price
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetStartingPrice_Ret(async_ret):
@@ -234,7 +234,7 @@ class EnglishAuction:
                 Returns:
                         Time remaining in seconds
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId, now]
                 ret = None
                 def CalcTimeRemaining_Ret(async_ret):
@@ -249,7 +249,7 @@ class EnglishAuction:
                 Returns:
                         Minimum bid price
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def CalcMinimumBid_Ret(async_ret):
@@ -269,7 +269,7 @@ class EnglishAuction:
                 Returns:
                         List of auctions ending in the specified period
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [endfrom, endto, page, perpage, sort, asc]
                 ret = None
                 def GetAuctionsEnding_Ret(async_ret):
@@ -289,7 +289,7 @@ class EnglishAuction:
                 Returns:
                         List of auctions starting in the specified period
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [startfrom, startto, page, perpage, sort, asc]
                 ret = None
                 def GetAuctionsStarting_Ret(async_ret):
@@ -307,7 +307,7 @@ class EnglishAuction:
                 Returns:
                         List of open auctions
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [page, perpage, sort, asc]
                 ret = None
                 def GetOpenAuctions_Ret(async_ret):
@@ -343,7 +343,7 @@ Also supports reserve price and automatic bidding.</p></div>
         Also supports reserve price and automatic bidding.
         &#34;&#34;&#34;
         def __init__(self):
-                bus = maglev.maglev_MagLev.getInstance(&#34;englishauction&#34;)
+                bus = maglev.maglev_MagLev.getInstance(&#34;default&#34;)
                 lib = englishauction.englishauction_EnglishAuction(bus)
 
         def Create(self, start: float, end: float, startingPrice: float, reservePrice: float, priceIncrement: float) -&gt; str:
@@ -357,7 +357,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         auctionId
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [start, end, startingPrice, reservePrice, priceIncrement]
                 ret = None
                 def Create_Ret(async_ret):
@@ -373,7 +373,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         start of auction
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetStart_Ret(async_ret):
@@ -388,7 +388,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         true if auction has ended, false otherwise
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetEnd_Ret(async_ret):
@@ -403,7 +403,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         true if auction has started, false otherwise
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def HasStarted_Ret(async_ret):
@@ -418,7 +418,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         true if auction has ended, false otherwise
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def HasEnded_Ret(async_ret):
@@ -433,7 +433,7 @@ Also supports reserve price and automatic bidding.</p></div>
                         userId (str):user id
                         price (float):price bud
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId, userId, price]
                 ret = None
                 def Bid_Ret(async_ret):
@@ -447,7 +447,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetHighestBidder_Ret(async_ret):
@@ -463,7 +463,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         Highest bids for the specified auction
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId, numBids]
                 ret = None
                 def GetHighestBids_Ret(async_ret):
@@ -478,7 +478,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         Number of bids placed in the specified auction
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetNumberOfBids_Ret(async_ret):
@@ -493,7 +493,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         Price increment
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetPriceIncrement_Ret(async_ret):
@@ -508,7 +508,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         Reserve price
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetReservePrice_Ret(async_ret):
@@ -523,7 +523,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         Starting price
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def GetStartingPrice_Ret(async_ret):
@@ -539,7 +539,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         Time remaining in seconds
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId, now]
                 ret = None
                 def CalcTimeRemaining_Ret(async_ret):
@@ -554,7 +554,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         Minimum bid price
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [auctionId]
                 ret = None
                 def CalcMinimumBid_Ret(async_ret):
@@ -574,7 +574,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         List of auctions ending in the specified period
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [endfrom, endto, page, perpage, sort, asc]
                 ret = None
                 def GetAuctionsEnding_Ret(async_ret):
@@ -594,7 +594,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         List of auctions starting in the specified period
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [startfrom, startto, page, perpage, sort, asc]
                 ret = None
                 def GetAuctionsStarting_Ret(async_ret):
@@ -612,7 +612,7 @@ Also supports reserve price and automatic bidding.</p></div>
                 Returns:
                         List of open auctions
                 &#34;&#34;&#34;
-                pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+                pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
                 args = [page, perpage, sort, asc]
                 ret = None
                 def GetOpenAuctions_Ret(async_ret):
@@ -642,7 +642,7 @@ price (float):price bud</p></div>
                 userId (str):user id
                 price (float):price bud
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId, userId, price]
         ret = None
         def Bid_Ret(async_ret):
@@ -670,7 +670,7 @@ price (float):price bud</p></div>
         Returns:
                 Minimum bid price
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def CalcMinimumBid_Ret(async_ret):
@@ -701,7 +701,7 @@ now (float):current unix timestamp</p>
         Returns:
                 Time remaining in seconds
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId, now]
         ret = None
         def CalcTimeRemaining_Ret(async_ret):
@@ -738,7 +738,7 @@ priceIncrement (float):price increments for bids in the auction</p>
         Returns:
                 auctionId
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [start, end, startingPrice, reservePrice, priceIncrement]
         ret = None
         def Create_Ret(async_ret):
@@ -777,7 +777,7 @@ asc (bool):ascending (true) or descending (false)</p>
         Returns:
                 List of auctions ending in the specified period
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [endfrom, endto, page, perpage, sort, asc]
         ret = None
         def GetAuctionsEnding_Ret(async_ret):
@@ -816,7 +816,7 @@ asc (bool):ascending (true) or descending (false)</p>
         Returns:
                 List of auctions starting in the specified period
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [startfrom, startto, page, perpage, sort, asc]
         ret = None
         def GetAuctionsStarting_Ret(async_ret):
@@ -845,7 +845,7 @@ asc (bool):ascending (true) or descending (false)</p>
         Returns:
                 true if auction has ended, false otherwise
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def GetEnd_Ret(async_ret):
@@ -873,7 +873,7 @@ Returns:</p></div>
         Returns:
                 
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def GetHighestBidder_Ret(async_ret):
@@ -904,7 +904,7 @@ numBids (float):max number of highest bids to return</p>
         Returns:
                 Highest bids for the specified auction
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId, numBids]
         ret = None
         def GetHighestBids_Ret(async_ret):
@@ -933,7 +933,7 @@ numBids (float):max number of highest bids to return</p>
         Returns:
                 Number of bids placed in the specified auction
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def GetNumberOfBids_Ret(async_ret):
@@ -968,7 +968,7 @@ asc (bool):ascending (true) or descending (false)</p>
         Returns:
                 List of open auctions
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [page, perpage, sort, asc]
         ret = None
         def GetOpenAuctions_Ret(async_ret):
@@ -997,7 +997,7 @@ asc (bool):ascending (true) or descending (false)</p>
         Returns:
                 Price increment
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def GetPriceIncrement_Ret(async_ret):
@@ -1026,7 +1026,7 @@ asc (bool):ascending (true) or descending (false)</p>
         Returns:
                 Reserve price
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def GetReservePrice_Ret(async_ret):
@@ -1057,7 +1057,7 @@ Will return a timestamp in milliseconds</p>
         Returns:
                 start of auction
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def GetStart_Ret(async_ret):
@@ -1086,7 +1086,7 @@ Will return a timestamp in milliseconds</p>
         Returns:
                 Starting price
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def GetStartingPrice_Ret(async_ret):
@@ -1115,7 +1115,7 @@ Will return a timestamp in milliseconds</p>
         Returns:
                 true if auction has ended, false otherwise
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def HasEnded_Ret(async_ret):
@@ -1144,7 +1144,7 @@ Will return a timestamp in milliseconds</p>
         Returns:
                 true if auction has started, false otherwise
         &#34;&#34;&#34;
-        pybus = maglev.maglev_MagLevPy.getInstance(&#34;englishauction&#34;)
+        pybus = maglev.maglev_MagLevPy.getInstance(&#34;default&#34;)
         args = [auctionId]
         ret = None
         def HasStarted_Ret(async_ret):
