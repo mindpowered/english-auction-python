@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name='mindpowered-englishauction',
-    version='0.0.56',
+    version='0.0.57',
     author="Mind Powered Corporation",
     author_email="support@mindpowered.dev",
     license="CPAL-1.0",
@@ -20,7 +20,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        'mindpowered-persistence',
         'mindpowered-maglev',
     ],
 )
